@@ -18,92 +18,110 @@
         <br /><br /><br />
 
         <label> Don't have an account?</label>
-        <button ng-click="beginSignUp()">Register Here!</button>
-    </div>
-    <!--Sign Up-->
-    <!--<div ng-show="signUp">
-        <h2>Sign-Up</h2>-->
-    <div ng-show="step1">
-        <h3>Step 1</h3>
-        <!--<form>-->
-        <label>First Name:<input ng-model="newFirstName" /></label><br />
-        <label>Last Name:<input ng-model="newLastName" /></label><br />
-        <label>Username:<input ng-model="newUserName" /></label><br />
-        <!--Avaliability check-->
-        <label>Password:<input ng-model="newPassword" /></label><br />
-        <label>Confirm Password:<input ng-model="confirmPassword" /></label><br />
-        <button ng-click="gostep2()">Next</button>
-        <button ng-click="cancelSignUp()">Cancel</button>
-        <!--</form>-->
-    </div>
+        <button ng-click="beginSignUp()">Register Here!</button></div>
+        <!--Sign Up-->
+        <!--<div ng-show="signUp">
+            <h2>Sign-Up</h2>-->
+        <div ng-show="step1">
+            <h3>Step 1</h3>
+            <form name="addForm">
+                <label>First Name:<input name="firstName" ng-model="newFirstName" required /></label><br />
+                <!--First Name is a required field-->
+                <div ng-show="addForm.firstName.$touched">
+                    <span ng-show="addForm.firstName.$error.required">First Name is required</span>
+                </div>
+                <label>Last Name:<input name="lastName" ng-model="newLastName" required /></label><br />
+                <!--Last Name is a required field-->
+                <div ng-show="addForm.lastName.$touched">
+                    <span ng-show="addForm.lastName.$error.required">Last Name is required</span>
+                </div>
+                <label>Username:<input name="username" ng-model="newUserName" required /></label><br />
+                <div ng-show="addForm.username.$touched">
+                    <span ng-show="addForm.username.$error.required">Last Name is required</span>
+                </div>
+                <!--Avaliability check-->
+                <label>Password:<input name="password" ng-model="newPassword" required /></label><br />
+                <div ng-show="addForm.password.$touched">
+                    <span ng-show="addForm.password.$error.required">Last Name is required</span>
+                </div>
+                <label>Confirm Password:<input ng-model="confirmPassword" /></label><br />
+                <button ng-click="gostep2()">Next</button>
+                <button ng-click="cancelSignUp()">Cancel</button>
+            </form>
+        </div>
 
-    <div ng-show="step2">
-        <h3>Step 2</h3>
-        <label>Contact: <input ng-model="newContact" /></label><br />
-        <label>Email:<input ng-model="newEmail" /></label><br />
-        <button ng-click="gostep3()">Next</button>
-        <button ng-click="beginSignUp()">Back</button>
-        <button ng-click="cancelSignUp()">Cancel</button>
-    </div>
+        <div ng-show="step2">
+            <form>
+                <h3>Step 2</h3>
+                <label>Contact: <input ng-model="newContact" /></label><br />
+                <label>Email:<input ng-model="newEmail" type="email" /></label><br />
+                <button ng-click="gostep3()">Next</button>
+                <button ng-click="beginSignUp()">Back</button>
+                <button ng-click="cancelSignUp()">Cancel</button>
+            </form>
+        </div>
 
-    <div ng-show="step3">
-        <h3>Step 3</h3>
-        <label>Genre: <select ng-model="selectedGenre" ng-options="x for x in genres"></select></label><br />
-        <label>Instrument:<select ng-model="selectedInstrument" ng-options="x for x in instruments"></select></label><br />
-        <label>Region:<select ng-model="selectedRegion" ng-options="x for x in regions"></select></label><br />
+        <div ng-show="step3">
+            <h3>Step 3</h3>
+            <form>
+                <label>Genre: <select ng-model="selectedGenre" ng-options="x for x in genres"></select></label><br />
+                <label>Instrument:<select ng-model="selectedInstrument" ng-options="x for x in instruments"></select></label><br />
+                <label>Region:<select ng-model="selectedRegion" ng-options="x for x in regions"></select></label><br />
+            </form>
+            <button ng-click="add()">Submit</button>
+            <button ng-click="gostep2()">Back</button>
+            <button ng-click="cancelSignUp()">Cancel</button>
 
-        <button ng-click="add()">Submit</button>
-        <button ng-click="gostep2()">Back</button>
-        <button ng-click="cancelSignUp()">Cancel</button>
+        </div>
 
-    </div>
+        <!--</div>-->
 
-    <!--</div>-->
+        <div ng-show="isAdding">
+            <h2>Add a new user</h2>
+            <label>Users name: <input ng-model="userName" /></label>
+            <!--<button ng-click="add()">Add</button>-->
+            <button ng-click="cancelAddition()"> Cancel </button>
+        </div>
+        <div ng-show="viewUsers">
+            <!--searches through individual users-->
+            <h1>Search for individuals</h1>
+            <label>Search users:<input ng-model="search" type="text" /></label>
+            <table>
+                <tr>
+                    <th>
+                        User Id
+                    </th>
+                    <th>
+                        User's Name
+                    </th>
+                    <th>
+                        Instrument
+                    </th>
+                </tr>
+                <tr ng-repeat="user in users | filter:search">
+                    <td>
+                        {{user.userId}}
+                    </td>
+                    <td>
+                        {{user.username}}
+                    </td>
+                    <td>
+                        {{user.email}}
+                    </td>
 
-    <div ng-show="isAdding">
-        <h2>Add a new user</h2>
-        <label>Users name: <input ng-model="userName" /></label>
-        <!--<button ng-click="add()">Add</button>-->
-        <button ng-click="cancelAddition()"> Cancel </button>
-    </div>
+                </tr>
+            </table>
 
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <button ng-click="beginEditing()">Add new user</button>
+            <button ng-click="beginSignUp()">Sign up</button>
+        </div>
 
+        <div ng-show="userProfile">
 
-    <div ng-show="viewUsers">
-        <!--searches through individual users-->
-        <h1>Get Request Testing</h1>
-        <label>Search users:<input ng-model="search" type="text" /></label>
-        <table>
-            <tr>
-                <th>
-                    User Id
-                </th>
-                <th>
-                    User's Name
-                </th>
-                <th>
-                    Email
-                </th>
-            </tr>
-            <tr ng-repeat="user in users | filter:search">
-                <td>
-                    {{user.userId}}
-                </td>
-                <td>
-                    {{user.username}}
-                </td>
-                <td>
-                    {{user.email}}
-                </td>
-            </tr>
-        </table>
-    </div>
+        </div>
 
-    <!--!!!!!!!!!!!!!!!!!!!!! CHANGE - REMOVED DEAD BUTTONS HERE !!!!!!!!!!!!!!!!!!!!!!!!!-->
-
-    <script src="app/myApp.js"></script>
-    <script src="app/main/mainModule.js"></script>
-    <script src="app/main/mainController.js"></script>
+        <script src="app/myApp.js"></script>
+        <script src="app/main/mainModule.js"></script>
+        <script src="app/main/mainController.js"></script>
 </body>
 </html>
