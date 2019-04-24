@@ -5,30 +5,152 @@
     <title>Homepage</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
 
+    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 
-    <!--style stuff to add in--> 
+
+
+  
+    <!--style stuff to add in-->
     <style type="text/css">
         .auto-style1 {
             width: 100%;
             text-align: center;
             table-layout: fixed;
             font-family: Verdana;
-            border-collapse:collapse
-            
-            
-            
+            border-collapse: collapse
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+
+
+
+
+    <!--TEST STYLE-->
+    <style>
+        .loginbg {
+            margin: 0;
+            padding: 0;
+            background: url(https://new.graphicpanic.com/wp-content/uploads/2015/09/hd-music-concert-background.jpg?fbclid=IwAR1iEqslDjx9SnUZULVGWPyCWEXV-xhki_HJTTHA_UUuWgtZ9LrEbwklCn8);
+            background-size: cover;
+            background-position: center;
+            font-family: sans-serif;
+        }
+    </style>
+
+
+    <style type="text/css">
+        .loginbox {
+            border-radius: 25px;
+            width: 280px;
+            height: 320px;
+            background: #444;
+            color: #fff;
+            top: 70%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%,-50%);
+            box-sizing: border-box;
+            padding: 30px 30px;
+            opacity: 0.96;
+        }
+    </style>
+
+
+    <style type="text/css">
+        .loginbox p {
+            margin: 0;
+            padding: 0;
+            font-weight: bold;
         }
     </style>
 
     <style type="text/css">
-        .grad {
-            background-image: linear-gradient(to bottom right, steelblue, white);
+        .loginbox input {
+            width: 100%;
+            margin-bottom: 20px;
         }
     </style>
 
-    <!--ANIMATED BUTTON CLASS - TWEAK SIZE AND COLOUR-->     
+
     <style type="text/css">
+        .loginbox input[type="text"], input[type="password"] {
+            border: none;
+            border-bottom: 1px solid #fff;
+            background: transparent;
+            outline: none;
+            height: 40px;
+            color: #fff;
+            font-size: 16px;
+        }
+    </style>
+
+    <style type="text/css">
+        .loginbox input[type="submit"] {
+            border: none;
+            outline: none;
+            height: 40px;
+            background: #A6808C;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 20px;
+        }
+    </style>
+
+
+    <style type="text/css">
+        .loginbox input[type="submit"]:hover {
+            cursor: pointer;
+            background: #874F61;
+            color: #fff;
+        }
+    </style>
+
+    <style type="text/css">
+        .loginbox a {
+            text-decoration: none;
+            font-size: 12px;
+            line-height: 20px;
+            color: darkgrey;
+        }
+    </style>
+
+
+    <style type="text/css">
+        .loginbox a:hover {
+            cursor: pointer;
+            color: #fff;
+        }
+    </style>
+
+    <style type="text/css">
+        .bgimg {
+            margin: 0;
+            padding: 0;
+            background-image: url("https://images.wallpaperscraft.com/image/people_hands_concert_music_crowd_80452_1920x1080.jpg");
+            background-repeat: no-repeat;
+            height: 100%;
+            background-size: 100% 100%;
+            font-family: Arial;
+        }
+
+
+
+
+    </style>
+
+    <!--END TEST CSS-->
+    <!--ANIMATED BUTTON CLASS - TWEAK SIZE AND COLOUR-->
+    <!--<style type="text/css">
         .button {
             display: inline-block;
             padding: 8px 12px;
@@ -51,383 +173,1843 @@
             .button:active {
                 background-color: darkred;
                 box-shadow: 0 5px #666;
-                transform: translateY(4px);
-            }
-    </style>
+                transform: translateY(4px);-->
+            <!--}
+    </style>-->
 
-    <style type="text/css">
-        .boxed{
-            border: 1px solid black;
-        }
-    </style>
+  
 
-    
+
     <!--/* Navbar container */-->
     <style>
-    .navbar {
-    overflow: hidden;
-    background-color: #333;
-    font-family: Arial;
-    }
-
-    /* Links inside the navbar */
-    .navbar a {
-    float: left;
-    font-size: 16px;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    }
-
-    /* The dropdown container */
-    .dropdown {
-    float: initial;
-    overflow: auto;
-    }
-
-    /* Dropdown button */
-        .dropdown .dropbtn {
-            font-size: 16px;
-            border: none;
-            outline: none;
-            color: #333;
-            padding: 14px 16px;
-            background-color: inherit;
-            font-family: inherit; /* Important for vertical align on mobile phones */
-            margin: 0; /* Important for vertical align on mobile phones */
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+            font-family: Arial;
         }
-
-    /* Add a red background color to navbar links on hover */
-    .navbar a:hover, .dropdown:hover .dropbtn {
-    background-color: red;
-    }
-
-    /* Dropdown content (hidden by default) */
-    .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    }
-
-    /* Links inside the dropdown */
-    .dropdown-content a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-    }
-
-    /* Add a grey background color to dropdown links on hover */
-    .dropdown-content a:hover {
-    background-color: #ddd;
-    }
-
-    /* Show the dropdown menu on hover */
-    .dropdown:hover .dropdown-content {
-    display: block;
-    } 
+            /* Links inside the navbar */
+            .navbar a {
+                float: left;
+                font-size: 16px;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+        /* The dropdown container */
+        .dropdown {
+            float: initial;
+            overflow: auto;
+        }
+            /* Dropdown button */
+            .dropdown .dropbtn {
+                font-size: 16px;
+                border: none;
+                outline: none;
+                color: #333;
+                padding: 14px 16px;
+                background-color: inherit;
+                font-family: inherit; /* Important for vertical align on mobile phones */
+                margin: 0; /* Important for vertical align on mobile phones */
+            }
+            /* Add a red background color to navbar links on hover */
+            .navbar a:hover, .dropdown:hover .dropbtn {
+                background-color: red;
+            }
+        /* Dropdown content (hidden by default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+            /* Links inside the dropdown */
+            .dropdown-content a {
+                float: none;
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+            }
+                /* Add a grey background color to dropdown links on hover */
+                .dropdown-content a:hover {
+                    background-color: #ddd;
+                }
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
     </style>
 
 
 
 
+
+    <!--NAVBAR STYLES BELOW-->
+
+
+    <style>
+        .nav-main {
+            width: 100%;
+            background-color: #373F51; /*//DARK BLUE*/
+            height: 80px;
+            color: #fff; /*//WHITE*/
+            font-family: 'Raleway', sans-serif;
+            margin: 0;
+        }
+
+            .nav-main .logo {
+                float: left;
+                height: 50px; /*//text height*/
+                padding: 15px 30px; /*vert/horiz*/
+                font-size: 4em; /*//adjusting relative to rest of fonts*/
+                line-height: 50px; /*so it is aligned vertically*/
+                letter-spacing: 5px;
+                /*font-family: 'Julius Sans One', sans-serif;*/
+                /*font-family: 'Pacifico', cursive;*/
+                font-family: 'Raleway', sans-serif;
+                font-weight: bold;
+                color: #A6808C;
+            }
+
+            .nav-main > ul { /*formatting the unordered list in the nav bar*/
+                margin: 0;
+                padding: 0;
+                float: right;
+                list-style-type: none;
+            }
+
+                .nav-main > ul > li {
+                    float: left
+                }
+
+        .nav-item { /*styling the anchors*/
+            display: inline-block;
+            padding: 15px 20px;
+            height: 50px;
+            line-height: 50px; /*make sure these match logo class* we may need to write another version of this class for the dropdown with image later*/
+            color: #fff; /*white*/
+            text-decoration: none; /*removing link underlines*/
+            cursor: pointer;
+        }
+
+            .nav-item:hover {
+                background-color: #11192B; /*BG HOVER COLOR*/
+            }
+
+        .nav-item2:hover {
+            background-color: #11192B; /*BG HOVER COLOR*/
+        }
+
+        .nav-item2 { /*STYLING THE PROF PICTURE DROPDOWN*/
+            display: inline-block;
+            padding: 5px 20px;
+            height: 70px;
+            line-height: 10px; /*make sure these match logo class* we may need to write another version of this class for the dropdown with image later*/
+            color: #fff; /*white*/
+            text-decoration: none; /*removing link underlines*/
+            cursor: pointer;
+        }
+
+        .nav-content {
+            position: absolute;
+            top: 80px; /*THIS NEEDS TO MATCH THE HEIGHT OF THE BAR*/
+            width: inherit;
+            overflow: hidden;
+            background-color: #11192B;
+            max-height: 0px; /*//this hides the dropdown initially*/
+        }
+
+            .nav-content a { /*\\for any anchor in the dropdown*/
+                color: #fff;
+                text-decoration: none;
+            }
+
+                .nav-content a:hover {
+                    text-decoration: underline;
+                }
+
+        .nav-sub {
+            padding: 20px;
+        }
+
+            .nav-sub ul {
+                padding: 0;
+                margin: 0;
+                list-style-type: none;
+            }
+
+                .nav-sub ul li a {
+                    display: inline-block;
+                    padding: 5px 0px;
+                    cursor: pointer;
+                }
+
+        .nav-item:focus {
+            background-color: #11192B; /*\\FOCUS ALLOWS US TO TOGGLE THE ITEMS - NEEDED TO SHOW DROPDOWN*/
+        }
+
+        .nav-item2:focus {
+            background-color: #11192B;
+        }
+
+            .nav-item2:focus ~ .nav-content {
+                max-height: 400px; /*///to make dropdown appear on click///*/
+                max-width: inherit;
+                transition: max-height 0.4s ease-in; /*///transition animation settings*/
+                -webkit-transition: max-height 0.4s ease-in; /*//adding support for multiple browsers*/
+                -moz-transition: max-height 2.0s ease-in;
+            }
+
+        .nav-content:active {
+            max-height: 400px;
+        }
+
+        .bgcolor {
+            background-color: #D8DBE2;  /*//lightblue*/
+        }
+
+        .profpic {
+            border-radius: 50%;
+        }
+
+        .loginlogo {
+            text-align: center;
+            height: 50px; /*//text height*/
+            padding: 10px 30px; /*vert/horiz*/
+            font-size: 4em; /*//adjusting relative to rest of fonts*/
+            line-height: 50px; /*so it is aligned vertically*/
+            letter-spacing: 5px;
+            /*font-family: 'Julius Sans One', sans-serif;*/
+            /*font-family: 'Pacifico', cursive;*/
+            font-family: 'Raleway', sans-serif;
+            font-weight: 900;
+            color: #444;
+        }
+
+        .logintagline {
+            text-align: center;
+            height: 50px; /*//text height*/
+            padding: 5px 30px; /*vert/horiz*/
+            font-size: 1.8em; /*//adjusting relative to rest of fonts*/
+            line-height: 50px; /*so it is aligned vertically*/
+            letter-spacing: 2px;
+            /*font-family: 'Julius Sans One', sans-serif;*/
+            /*font-family: 'Pacifico', cursive;*/
+            font-family: 'Raleway', sans-serif;
+            font-weight: 700;
+            color: #A6808C;
+        }
+
+        .floatLeft {
+            width: 30%;
+            float: left;
+        }
+
+        .floatRight {
+            width: 70%;
+            float: right;
+            margin-top: 20px;
+        }
+
+        .container {
+            overflow: hidden;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+
+
+        .searchmodule {
+            border-radius: 25px;
+            width: 280px;
+            height: 320px;
+            /*background: #A5A8AF;*/
+            color: black;
+            top: 45%;
+            left: 15%;
+            position: absolute;
+            transform: translate(-50%,-50%);
+            box-sizing: border-box;
+            padding: 20px 20px;
+            font-family: 'Raleway', sans-serif;
+            background: #BAC0D0;
+        }
+
+        .shadedsearch {
+            background-color: #D8DBE2;
+        }
+
+        /*///PROFILE PAGE STYLES///*/
+
+        .infoboxtop {
+            padding-top: 20px;
+            overflow: auto;
+            border-radius: 25px;
+            /*width: 280px;
+            height: 320px;*/
+            width: 50%;
+            height: 330px;
+            background: #BAC0D0;
+            color: #fff;
+            left: 50%;
+            margin-top: 20px;
+            margin-left: 25%;
+            margin-right: 25%;
+            margin-bottom: 20px;
+            /*position: absolute;*/
+            /*transform: translate(-50%,-0%);*/
+            box-sizing: border-box;
+            padding: 30px 30px;
+        }
+
+        .proffloatleft {
+            width: 60%;
+            float: left;
+            text-align: center;
+            padding: 0px, 0px;
+        }
+
+        .proffloatlefttop {
+            height: 125px;
+            width: 100%;
+            vertical-align: middle
+        }
+
+        .username {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 900;
+            color: #373F51;
+            letter-spacing: 2px;
+            font-size: 3em; /*//adjusting relative to rest of fonts*/
+        }
+
+        .proffloatleftbottom {
+            height: 125px;
+            width: 100%;
+            vertical-align: middle;
+        }
+
+
+
+        .proffloatright {
+            width: 40%;
+            float: right;
+            text-align: center;
+            padding: 0px, 0px;
+        }
+
+        .button {
+            border: none;
+            margin-top: 5px;
+            outline: none;
+            height: 40px;
+            background: #A6808C;
+            color: #fff;
+            font-size: 14px;
+            border-radius: 20px;
+        }
+        
+        
+        
+        
+        
+        .button:hover {
+            cursor: pointer;
+            background: #874F61;
+            color: #fff;
+        }
+
+        
+
+        .invitebutton {
+            border: none;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            outline: none;
+            height: auto;
+            background: #A6808C;
+            color: #fff;
+            font-size: 12px;
+            border-radius: 20px;
+            padding-top: 5px;
+            padding-bottom: 2px;
+            padding-left: 15px;
+            padding-right: 15px
+        }
+
+        .invitebutton:hover {
+            cursor: pointer;
+            background: #874F61;
+            color: #fff;
+        }
+
+
+
+
+        .biobox {
+            /*padding-top: 20px;*/
+            background-color: #D8DBE2;
+            overflow: hidden;
+            border-radius: 25px;
+            /*width: 280px;
+            height: 320px;*/
+            width: auto;
+            /*height:100px;*/
+            min-height: 0px;
+            max-height: 150px;
+            color: #373F51;
+            /*left: 50%;*/
+            margin-top: auto;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: auto;
+            padding-left: 10px;
+            padding-right: 10px;
+            /*position: absolute;*/
+            /*transform: translate(-50%,-0%);*/
+            box-sizing: border-box;
+            /*padding: 30px 30px;*/
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .userdetailsbox {
+            padding-top: 20px;
+            overflow: auto;
+            border-radius: 25px;
+            /*width: 280px;
+            height: 320px;*/
+            width: 50%;
+            height: auto;
+            background: #BAC0D0;
+            color: #fff;
+            left: 50%;
+            margin-top: 20px;
+            margin-left: 25%;
+            margin-right: 25%;
+            margin-bottom: 20px;
+            /*position: absolute;*/
+            /*transform: translate(-50%,-0%);*/
+            box-sizing: border-box;
+            padding: 30px 30px;
+        }
+
+        .detailsfloatleft {
+            width: 40%;
+            float: left;
+            text-align: center;
+            padding: 0px, 0px;
+        }
+
+        .detailsfloatright {
+            width: 60%;
+            float: left;
+            text-align: center;
+            padding: 0px, 0px;
+        }
+
+        .detailsfloatrightup {
+            height: 20%;
+            text-align: center;
+            padding: 0px, 0px;
+        }
+
+        .detailsfloatrightupdown {
+            height: 80%;
+            text-align: center;
+            padding: 0px, 0px;
+        }
+
+        .genres {
+            /*padding-top: 20px;*/
+            background-color: #D8DBE2;
+            overflow: hidden;
+            border-radius: 25px;
+            /*width: 280px;
+            height: 320px;*/
+            width: auto;
+            /*height:100px;*/
+            min-height: 0px;
+            max-height: 190px;
+            color: #373F51;
+            /*left: 50%;*/
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: auto;
+            padding-left: 15px;
+            padding-right: 10px;
+            padding-top: 15px;
+            padding-bottom: 10px;
+            /*position: absolute;*/
+            /*transform: translate(-50%,-0%);*/
+            box-sizing: border-box;
+            /*padding: 30px 30px;*/
+            font-family: 'Raleway', sans-serif;
+            list-style-position: inside;
+            text-align: left;
+        }
+
+        .instruments {
+            /*padding-top: 20px;*/
+            background-color: #D8DBE2;
+            overflow: hidden;
+            border-radius: 25px;
+            /*width: 280px;
+            height: 320px;*/
+            width: auto;
+            /*height:100px;*/
+            min-height: 0px;
+            max-height: 150px;
+            color: #373F51;
+            /*left: 50%;*/
+            margin-top: auto;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 15px;
+            padding-right: 10px;
+            padding-top:15px;
+            /*position: absolute;*/
+            /*transform: translate(-50%,-0%);*/
+            box-sizing: border-box;
+            /*padding: 30px 30px;*/
+            font-family: 'Raleway', sans-serif;
+            list-style-position: inside;
+            text-align: left;
+        }
+
+        .region {
+            /*padding-top: 20px;*/
+            background-color: #D8DBE2;
+            overflow: hidden;
+            border-radius: 25px;
+            margin-left: 20px;
+            /*width: 280px;
+            height: 320px;*/
+            width: auto;
+            /*height:100px;*/
+            height: 100%;
+            color: #373F51;
+            /*left: 50%;*/
+            margin-top: auto;
+            margin-right: auto;
+            margin-bottom: 20px;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            /*position: absolute;*/
+            /*transform: translate(-50%,-0%);*/
+            box-sizing: border-box;
+            /*padding: 30px 30px;*/
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .hiddencontact {
+            /*padding-top: 20px;*/
+            background-color: #D8DBE2;
+            overflow: hidden;
+            border-radius: 25px;
+            margin-top: 20px;
+            margin-left: 20px;
+            width: auto;
+            height: 200px;;
+            /*height:100px;*/
+            color: #373F51;
+            /*left: 50%;*/
+            text-align: center;
+            /*line-height: 50px;*/
+            margin-top: auto;
+            /*margin-bottom: 20px;*/
+            
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 80px;
+            padding-bottom :90px;
+            /*position: absolute;*/
+            /*transform: translate(-50%,-0%);*/
+            box-sizing: border-box;
+            /*padding: 30px 30px;*/
+            font-family: 'Raleway', sans-serif;
+            font-weight: bold;            
+        }
+
+        .authorisedcontact {
+            /*padding-top: 20px;*/
+            background-color: #D8DBE2;
+            overflow: hidden;
+            border-radius: 25px;
+            margin-top: 20px;
+            margin-left: 20px;
+            width: auto;
+            height: 200px;
+            /*height:100px;*/
+            color: #373F51;
+            /*left: 50%;*/
+            text-align: left;
+            /*line-height: 50px;*/
+            margin-top: auto;
+            /*margin-bottom: 20px;*/
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 15px;
+            padding-bottom: 0px;
+            /*position: absolute;*/
+            /*transform: translate(-50%,-0%);*/
+            box-sizing: border-box;
+            /*padding: 30px 30px;*/
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .editedbullet {
+            list-style-type: none;
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .rightalign {
+            padding-left: 20px;
+        }
+
+        .notificationbell{
+            color: white;
+        }
+
+
+        .regbg {
+            margin: 0;
+            padding: 0;
+            background-image: url("https://images.wallpaperscraft.com/image/people_hands_concert_music_crowd_80452_1920x1080.jpg");
+            background-repeat: no-repeat;
+            height: 100%;
+            background-size: 100% 100%;
+            font-family: Arial;
+            opacity: 1;
+        }
+
+
+
+            .registrationpanel {
+            padding-top: 20px;
+            overflow: auto;
+            border-radius: 25px;
+            /*width: 280px;
+            height: 320px;*/
+            width: 50%;
+            height: auto;
+            background: #444;
+            color: #fff;
+            left: 50%;
+            margin-left: 25%;
+            margin-right: 25%;
+            margin-bottom: 20px;
+            /*position: absolute;*/
+            /*transform: translate(-50%,-0%);*/
+            box-sizing: border-box;
+            padding: 30px 30px;
+        }
+
+    </style>
 
 
 </head>
-<body class="grad" font-family="verdana" ng-controller="mainController">
-    <!--ADDED BACKGROUND COLOUR HERE-->
+<body class="bgcolor" font-family="Raleway" ng-controller="mainController">
+
+    <div ng-show="navbar">
+        <!--FORMATTED NAV BAR-->
+
+        <div class="nav-main">
+            <div class="logo">BandMates</div>
+            <ul>
+                <li>
+                    <a ng-click="viewallusers()" class="nav-item">Browse Users</a>
+                </li>
+                <li>
+                    <a ng-click="viewallbands()" class="nav-item">Browse Bands</a>
+                </li>
+                <li ng-if="beingUser == 'true'">
+                    <a ng-click="band_SignUp()" class="nav-item">Register a Band</a>
+                </li>
+                <li>
+                    <a ng-click="notifications()" class="nav-item2"><center><br /><div class="material-icons"><div class="notificationbell">notifications_active</div></div></center><br /><center>1</center></a>
+                </li>
+                <li ng-if="thisUserDetails.role == 'Admin'">
+                    <a ng-click="showAdminView()" class="nav-item">Admin Page</a>
+
+                </li>
+                <li>
+                    <a ng-if="beingBand == 'true'" href="#" class="nav-item2">
+                        {{currentBandInfo.bandName}}<br />
+                        <center><img src="{{currentBandInfo.profilePhoto}}" height="50" width="50" /></center>
+                    </a>
+                    <a ng-if="beingUser == 'true'" href="#" class="nav-item2">
+                        <center><img class="profpic" src="{{thisUserDetails.imageURL}}" height="45" width="45" /></center><br />
+                        {{thisUserDetails.username}}
+                    </a>
+                    <div class="nav-content">
+                        <div class="nav-sub">
+                            <ul>
+                                <li ng-if="beingBand == 'true'"><a ng-click="switchToUser()">Switch to User</a></li>
+                                <li ng-if="beingBand == 'true'"><a ng-click="">Band Profile</a></li>
+                                <li ng-if="beingBand == 'true'"><a ng-click="displayEditBandDetails(currentBandInfo.bandId)">Edit Band</a></li>
+                                <li ng-if="beingBand == 'true'"><a ng-click="bandAdmin(currentBandInfo)">Band Admin</a></li>
+                                <li ng-if="beingUser == 'true'"><a ng-click="viewThisUserProfile(thisUserDetails)">My Profile</a></li>
+                                <li ng-if="beingUser == 'true'"><a ng-click="displayEditUserDetails(thisUserDetails.userId)">Account</a></li>
+                                <li><a ng-click="logout()">Log Out</a></li>
+                                <li><a ng-click="displayMyBands()">My Band</a></li><!--Currently only lists all bands-->
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <br />
+
+        </div>
+    </div>
     <div ng-show="errorMessage">Error {{errorMessage|json}}</div>
+    
+  
     <div ng-show="success">Successful sign-up</div>
-    <div ng-show="loginPage">
-        <center>
+    <div class="bgimg" ng-show="loginPage" ng-controller="authenticationController">
 
 
 
-            <h2>Login Here!</h2>
-            <label>Username:<input ng-model="username" /></label><br />
-            <label>Password:<input ng-model="password" /></label><br />
-            <button class="button">Submit</button>
+        
+            <div class="loginlogo"><br /><br />BandMates</div>
+            <div class="logintagline"><br /><br />Connecting Musicians.</div>
+            <div class="loginbox">
+                <form>
+
+                    <input type="text" name="username" placeholder="Username" ng-model="username">
+
+                    <input type="password" name="password" placeholder="Password" ng-model="password">
+
+                    <input type="submit" name="" value="Log In" ng-click="login()">
+
+                    <center><a ng-click="beginSignUp()">Don't have an account?<br />Register Here</a></center>
+
+                    <label ng-show="showWrongDetails"> <br />Incorrect User Details</label>
+                </form>
+
+            </div>
 
 
+            <!--<label ng-show="loggedIn">Success</label>-->
 
-            <br /><br /><br />
 
-            <label> Don't have an account?</label><br />
-            <button class="button" ng-click="beginSignUp()">Register Here!</button>
-            <br /><br /><br /><br /><br /><br /><br /><br />
-            <button ng-click="viewallusers()">List Of Users (test only)</button>
-        </center>
+            <!--<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <h2>test</h2>-->
+            <!--button ng-click="viewallusers()">Multi-User View</button><br />
+            <button ng-click="viewallbands()">Multi-Band View</button><br />
+            <button ng-click="showAdminView()">Admin User View</button><br />
+            <button ng-click="band_SignUp()">Band Registration</button>
+            <br /><br />-->
+            <!--<h2>Logo Placeholder</h2>
+            <image src="https://scontent-lht6-1.xx.fbcdn.net/v/t1.15752-9/56214459_281433406116403_7597284464967811072_n.png?_nc_cat=108&_nc_ht=scontent-lht6-1.xx&oh=795d416d1c1300e43702aabc3d95893b&oe=5D4C35A9" height="200" width="600"></image>
+            <br /><br />
+            <h2>Site Description Placeholder</h2>
+            BandMates makes it easier than ever before to connect with other bands and musicians.<br />
+            Create a profile to represent you or your band, browse your matches, and connect with local musicians today!-->
+
+            <!--<br /><br />
+            <h2>Link and API</h2>
+            http://webteach_net.hallam.shu.ac.uk/b0022242/BandMatesAngular/Main.html?fbclid=IwAR2bZBm-r2h8YCfsewiTJ-ePqE17o7bTrDcxaJjyC9JUJ6szdfGBsMTu510 <br />
+            http://webteach_net.hallam.shu.ac.uk/b1023758/api/User
+
+            <button ng-click="realLog()">Formatted Login Page</button>-->
+
+        <!--</center>-->
     </div>
     <!--Sign Up-->
     <!--<div ng-show="signUp">
         <h2>Sign-Up</h2>-->
-    <div ng-show="step1">
-        <h3>Step 1</h3>
+    <div ng-show="step1" novalidate class="regbg">
+        
+        <div class="registrationpanel">
+            This area should have some text about the signup process and indicate the current step.
+            <table>
+                <tr>
+                    <td width="20%" align="right">
+                        First Name
+                    </td>
+                    <td width="50%" align="center">
+                        <input name="firstName" ng-model="newFirstName" required />
+                    </td>
+                    <td>
+                        <div ng-show="step1Form.firstName.$touched">
+                            <span ng-show="step1Form.firstName.$error.required">First Name is required</span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
 
-        <form name="addForm">
-
+        <form name="step1Form">
             <label>First Name:<input name="firstName" ng-model="newFirstName" required /></label><br />
-
             <!--First Name is a required field-->
-
-            <div ng-show="addForm.firstName.$touched">
-
-                <span ng-show="addForm.firstName.$error.required">First Name is required</span>
-
+            <div ng-show="step1Form.firstName.$touched">
+                <span ng-show="step1Form.firstName.$error.required">First Name is required</span>
             </div>
-
             <label>Last Name:<input name="lastName" ng-model="newLastName" required /></label><br />
-
             <!--Last Name is a required field-->
-
-            <div ng-show="addForm.lastName.$touched">
-
-                <span ng-show="addForm.lastName.$error.required">Last Name is required</span>
-
+            <div ng-show="step1Form.lastName.$touched">
+                <span ng-show="step1Form.lastName.$error.required">Last Name is required</span>
             </div>
-
             <label>Username:<input name="username" ng-model="newUserName" required /></label><br />
-
-            <div ng-show="addForm.username.$touched">
-
-                <span ng-show="addForm.username.$error.required">Last Name is required</span>
-
+            <div ng-show="step1Form.username.$touched">
+                <span ng-show="step1Form.username.$error.required">Last Name is required</span>
             </div>
-
             <!--Avaliability check-->
-
-            <label>Password:<input name="password" ng-model="newPassword" required /></label><br />
-
-            <div ng-show="addForm.password.$touched">
-
-                <span ng-show="addForm.password.$error.required">Last Name is required</span>
-
+            <!--Add password type-->
+            <label>Password:<input type="password" name="password" ng-model="newPassword" required /></label><br />
+            <div ng-show="step1Form.password.$touched">
+                <span ng-show="step1Form.password.$error.required">Password is required</span>
             </div>
+            <label>Confirm Password:<input type="password" ng-model="confirmPwd" /></label><br />
+            <!--<div ng-show="step1Form.confirmPwd.$touched">
 
-            <label>Confirm Password:<input ng-model="confirmPassword" /></label><br />
+                <span ng-show="step1Form.confirmPwd.$error.required">Password confirmation is required</span>
 
-            <button ng-click="gostep2()">Next</button>
-
-            <button ng-click="cancelSignUp()">Cancel</button>
-
+            </div>-->
+            <button type="button" ng-click="gostep2()" ng-disabled="step1Form.$invalid">Next</button>
+            <button type="button" ng-click="cancelSignUp()">Cancel</button>
         </form>
-
     </div>
-
+  </div>
     <div ng-show="step2">
         <h3>Step 2</h3>
-        <label>Contact: <input ng-model="newContact" /></label><br />
-        <label>Email:<input type="email" ng-model="newEmail" /></label><br />
-        <button ng-click="gostep3()">Next</button>
-        <button ng-click="beginSignUp()">Back</button>
-        <button ng-click="cancelSignUp()">Cancel</button>
-    </div>
+        <form name="step2Form" novalidate>
+            <label>Contact: <input name="newContact" ng-model="newContact" type="number" required /></label><br />
+            <div ng-show="step2Form.newContact.$touched">
+                <span ng-show="step2Form.newContact.$error.required">Contact number is required.</span>
+                <span ng-show="step2Form.newContact.$error.email">Invalid contact number</span>
+            </div>
+            <!--Validations-->
+            <label>Email:<input type="email" name="newEmail" ng-model="newEmail" required /></label><br /><!--Validations-->
+            <div ng-show="step2Form.newEmail.$touched">
+                <span ng-show="step2Form.newEmail.$error.required">Email is required.</span>
+                <span ng-show="step2Form.newEmail.$error.email">Invalid email address</span>
+            </div>
+            <label>
+                Region: <select ng-model="selectedRegion" required ng-options="Region.regionId as Region.regionName for Region in regionList">
+                    <option value="">
+                        Select Region
 
+                    </option>
+                </select>
+            </label><br />
+            <div ng-show="step2Form.selectedRegion.$touched">
+                <span ng-show="step2Form.selectedRegion.$error.required">Region is required.</span>
+            </div>
+            <label>Image URL: <input name="newImageURL" ng-model="newImageURL" /></label><br />
+            <label>Spotify URL: <input name="newSpotifyURL" ng-model="newSpotifyURL" /></label><br />
+            <label>Youtube URL:<input name="newYoutubeURL" ng-model="newYoutubeURL" /></label><br />
+            <label>Soundcloud URL:<input name="newSoundcloudURL" ng-model="newSoundcloudURL" /></label><br />
+            <label>Bio:<input name="newUserBio" ng-model="newUserBio" /></label><br />
+            <button ng-click="add()" type="submit" ng-disabled="step2Form.$invalid">Submit</button>
+            <!--<button type="button" ng-click="gostep3()" ng-disabled="step2Form.$invalid">Next</button>-->
+            <button type="button" ng-click="beginSignUp()">Back</button>
+            <button type="button" ng-click="cancelSignUp()">Cancel</button>
+
+            <div ng-if="status== 409">Username already exists please enter a new one.</div>
+            <div ng-if="status== 406">Sorry something has gone wrong please contact one of our staff.</div>
+        </form>
+    </div>
     <div ng-show="step3">
         <h3>Step 3</h3>
-        <label>Genre: <select ng-model="selectedGenre" ng-options="x for x in genres"></select></label><br />
-        <label>Instrument:<select ng-model="selectedInstrument" ng-options="x for x in instruments"></select></label><br />
-        <label>Region:<select ng-model="selectedRegion" ng-options="x for x in regions"></select></label><br />
+        <form name="step3Form">
+            <label>
+                Genre: <select ng-model="selectedGenre" ng-options="Genre.genreName for Genre in genreList">
+                    <option value="">
+                        Select Genre
 
-        <button ng-click="add()">Submit</button>
+                    </option>
+                </select>
+            </label><br />
+
+            <label>
+                Instrument: <select ng-model="selectedInstrument" ng-options="Instrument.instrumentName for Instrument in instrumentList">
+                    <option value="">
+                        Select Instrument
+
+                    </option>
+                </select>
+            </label><br />
+
+        </form>
+        <button type="submit" ng-disabled="step3Form.$invalid" ng-click="addFilters()">Submit</button>
         <button ng-click="gostep2()">Back</button>
         <button ng-click="cancelSignUp()">Cancel</button>
-
     </div>
-
     <!--</div>-->
+    <!--Band Sign Up-->
+    <div ng-show="bandSignUp">
+        <h2>Step 1: Band Details</h2>
+        <label>Band Name:<input ng-model="newBandName" /></label><!--Check Avaliabilty--><br />
+        <!--<label>Number of Memebers: <select ng-model="noOfBandMems"></select> </label><br />-->
+        <!--Member Selection-->
+        <label>Bio:<input ng-model="newBandBio" /></label><br />
 
-    <div ng-show="isAdding">
-        <h2>Add a new user</h2>
-        <label>Users name: <input ng-model="userName" /></label>
-        <!--<button ng-click="add()">Add</button>-->
-        <button ng-click="cancelAddition()"> Cancel </button>
+        <h2>Step 2: Music Details</h2>
+        <label>
+            Region: <select ng-model="selectedBandRegion" required ng-options="Region.regionName for Region in regionList">
+                <option value="">
+                    Select Region
+
+                </option>
+            </select>
+        </label><br />
+        <label>
+            Genre: <select ng-model="selectedBandGenre" ng-options="Genre.genreName for Genre in genreList">
+                <option value="">
+                    Select Genre
+
+                </option>
+            </select>
+        </label><br />
+        <label>Image URL: <input name="newBandImageURL" ng-model="newBandImageURL" /></label><br />
+        <label>Spotify URL: <input name="newBandSpotifyURL" ng-model="newBandSpotifyURL" /></label><br />
+        <label>Youtube URL:<input name="newBandYoutubeURL" ng-model="newBandYoutubeURL" /></label><br />
+        <label>Soundcloud URL:<input name="newBandSoundcloudURL" ng-model="newBandSoundcloudURL" /></label><br />
+        <!--Youtube/SoundCloud/Spotify-->
+        <h2>Step 3</h2>
+        <label>Contact: <input ng-model="newBandContact" /></label><br />
+        <label>Email:<input type="email" ng-model="newBandEmail" /></label><br />
+        <button ng-click="addBand()">Submit</button>
+        <button ng-click="">Back</button>
+        <button ng-click="cancelBand()">Cancel</button>
     </div>
 
-    <div ng-show="viewUsers">
+
+    <!--VIEW ALL USERS-->
+
+    <div ng-show="viewUsers" ng-controller="authenticationController">
+
+        <div class="container">
+            <div class="floatLeft">
+                
+                <table class="searchmodule">
+                    <tr>
+                        <td colspan="2" align="center" class="bold">
+                            Filter results by:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="10%">
+                            Username 
+                        </td>
+                        <td width="40%">
+                            <input ng-model="search.username" type="search" class="shadedsearch" value="pie" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="10%">
+                            Instrument
+                        </td>
+                        <td width="40%">
+                            <input ng-model="search.instrumentName" type="search" class="shadedsearch"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Location 
+                        </td>
+                        <td>
+                            <input ng-model="search.regionName" type="search" class="shadedsearch" />
+                        </td>
+                    </tr>
+
+                </table>
+
+                <!--<label>Username <input ng-model="search.username" type="text" /></label><br />
+                <label>Location <input ng-model="search.regionName" type="text" /></label>-->
+            </div>
+
+            <div class="floatRight">
+                <table width="100%" align="center">
+                    <tr>
+                        <th>
+                        </th>
+                        <th>
+                           
+                        </th>
+                        <th>
+                            
+                        </th>
+                        <th>
+                        </th>
+                    </tr>
+                    <tr ng-repeat="user in users | filter:search" class="auto-style1">
+                        <td>
+                            <img class="profpic" src="{{user.imageURL}}" height="50" width="50" /><img />
+                        </td>
+                        <td class="bold">
+                            {{user.username}}
+                        </td>
+                        <td ng-repeat="userInstrument in userInstruments">
+                            {{userInstrument.instrumentName}}
+                        </td>
+                        <td>
+                            {{user.regionName}}
+                        </td>
+                        <!--<td>
+                <a ng-click="remove(user)" href="">
+                    Remove
+                </a>
+            </td>-->
+                        <td>
+                            <button class="button" ng-click="viewThisUserProfile(user)">Profile</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        </div>
+
+
+        <!--FORMATTED NAV BAR-->
+        <!--<div class="nav-main">
+            <div class="logo">BandMates</div>
+            <ul>
+                <li>
+                    <a ng-click="viewallusers()" class="nav-item">Browse Users</a>
+                </li>
+                <li>
+                    <a ng-click="viewallbands()" class="nav-item">Browse Bands</a>
+                </li>
+                <li>
+                    <a ng-click="band_SignUp()" class="nav-item">Register a Band</a>
+                </li>
+                <li>
+                    <a ng-click="" class="nav-item2"><center><img src="https://i.imgur.com/PkV1Oqp.jpg" height="40" width="40" /></center><center>1</center></a>
+                </li>
+                <li>
+                    <a href="#" class="nav-item2">
+                        {{thisUserDetails.username}}<br />
+                        <center><img src="{{thisUserDetails.imageURL}}" height="50" width="50" /></center>
+                    </a>
+                    <div class="nav-content">
+                        <div class="nav-sub">
+                            <ul>
+                                <li><a ng-click="displayEditUserDetails(thisUserDetails.userId)">Account</a></li>
+                                <li><a ng-click="logout()">Log Out</a></li>
+                                <li><a ng-click="displayMyBands()">My Band</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <br />
+
+        </div>-->
+
+        <!--<center>
+            <label><input ng-model="search.username" type="text" placeholder="Search Username" /></label>
+            <label><input ng-model="search.regionName" type="text" placeholder="Search Location" /></label>
+
+            <table width="800" align="center">
+                <tr>
+                    <th>
+
+                    </th>
+                    <th>
+                        Username
+                    </th>
+                    <th>
+                        Location
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+                <tr ng-repeat="user in users | filter:search" class="auto-style1">
+                    <td>
+                        <img class="profpic" src="{{user.imageURL}}" height="50" width="50" /><img />
+                    </td>
+                    <td>
+                        {{user.username}}
+                    </td>
+                    <td ng-repeat="userInstrument in userInstruments">
+                        {{userInstrument.instrumentName}}
+                    </td>
+                    <td>
+                        {{user.regionName}}
+                    </td>-->
+                    <!--<td>
+                        <a ng-click="remove(user)" href="">
+                            Remove
+                        </a>
+                    </td>-->
+                    <!--<td>
+                        <button ng-click="viewThisUserProfile(user)">Profile</button>
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </div>-->
+
+
+
+
+
+    <!--VIEW ALL BANDS-->
+
+
+    <div ng-show="viewBands" ng-controller="authenticationController">
+
+        <!--FORMATTED NAV BAR-->
+        <!--<div class="nav-main">
+            <div class="logo">BandMates</div>
+            <ul>
+                <li>
+                    <a ng-click="viewallusers()" class="nav-item">Browse Users</a>
+                </li>
+                <li>
+                    <a ng-click="viewallbands()" class="nav-item">Browse Bands</a>
+                </li>
+                <li>
+                    <a ng-click="band_SignUp()" class="nav-item">Register a Band</a>
+                </li>
+                <li>
+                    <a ng-click="" class="nav-item2"><center><img src="https://i.imgur.com/PkV1Oqp.jpg" height="40" width="40" /></center><center>1</center></a>
+                </li>
+                <li>
+                    <a href="#" class="nav-item2">
+                        {{thisUserDetails.username}}<br />
+                        <center><img src="{{thisUserDetails.imageURL}}" height="50" width="50" /></center>
+                    </a>
+                    <div class="nav-content">
+                        <div class="nav-sub">
+                            <ul>
+                                <li><a ng-click="displayEditUserDetails(thisUserDetails.userId)">Account</a></li>
+                                <li><a ng-click="logout()">Log Out</a></li>
+                                <li><a ng-click="displayMyBands()">My Band</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <br />
+
+        </div>-->
+
+
+
+
+        <label>Search bands:<input ng-model="search" type="text" /></label>
+        <center>
+            <table>
+                <tr ng-repeat="band in bands | filter:search">
+                    <td>
+                        <img src="{{band.profilePhoto}}" height="50" width="50" /><img />
+                    </td>
+                    <td>
+                        {{band.bandName}}
+                    </td>
+                    <td>
+                        {{band.genreName}}
+                    </td>
+                    <td>
+                        {{band.regionName}}
+                    </td>
+                    <!--<td>
+                        <a ng-click="remove(user)" href="">
+                            Remove
+                        </a>
+                    </td>-->
+                    <td>
+                        <button ng-click="">Profile</button>
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </div>
+    <div ng-show="adminView">
+        <div>
+            <!--searches through individual users-->
+            <h1>List of users - Get request from DB</h1>
+            <label>Search users:<input ng-model="search" type="text" /></label>
+            <table>
+                <tr>
+                    <th>
+                        User Id
+                    </th>
+                    <th>
+                        User's Name
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                </tr>
+                <tr ng-repeat="user in users | filter:search">
+                    <td>
+                        {{user.userId}}
+                    </td>
+                    <td>
+                        {{user.username}}
+                    </td>
+                    <td>
+                        {{user.email}}
+                    </td>
+                    <!--<td>
+                        <a ng-click="remove(user)" href="">
+                            Remove
+                        </a>
+                    </td>-->
+                    <td>
+                        <button ng-click="viewThisUserProfile(user)">Profile</button>
+                    </td>
+                    <td>
+                        <button ng-click="viewFilters(user)">Add genres</button>
+                    </td>
+                
+                </tr>
+            </table>
+        </div>
+        <div>
+            <!--list of the bands-->
+            <h1>List of bands</h1>
+            <label>Search bands:<input ng-model="search" type="text" /></label>
+            <table>
+                <tr>
+                    <th>
+                        Band Id
+                    </th>
+                    <th>
+                        Band's Name
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                </tr>
+                <tr ng-repeat="band in bands | filter:search">
+                    <td>
+                        {{band.bandId}}
+                    </td>
+                    <td>
+                        {{band.bandName}}
+                    </td>
+                    <td>
+                        {{band.email}}
+                    </td>
+                    <td>
+                        <button ng-click="removeBand(band)">
+                            Remove
+                        </button>
+                    </td>
+                    <!--<td>
+                        <button ng-click="viewThisBand(band)">Profile</button>
+                    </td>
+                    <td>
+                        <button ng-click="viewFilters(user)">Add genres</button>
+                    </td>-->
+                    <td>
+                        <button ng-click="displayEditBandDetails(band.bandId)">Edit</button>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+        <div>
+            <label>Add an instrument<input ng-model="newInstrument" /></label>
+            <button ng-click="addInstrument()">Add</button>
+            <div ng-if="instrumentStatus== 407">This instrument already exists</div>
+            <div ng-if="instrumentStatus== 200">Adding this instrument has been successful</div>
+            <div ng-if="instrumentStatus== 500">There has been an error</div>
+        </div>
+        <div>
+            <label>Add an genre<input ng-model="newGenre" /></label>
+            <button ng-click="addGenre()">Add</button>
+            <div ng-if="genreStatus== 407">This genre already exists</div>
+            <div ng-if="genreStatus== 500">There has been an error</div>
+          
+        </div>
+    </div>
+
+
+    <!--Added Profile View-->
+    <!-- Need info from beans class -->
+    <div ng-show="viewUserProfile">
+
+
+        <!--FORMATTED NAV BAR-->
+        <!--<div class="nav-main">
+            <div class="logo">BandMates</div>
+            <ul>
+                <li>
+                    <a ng-click="viewallusers()" class="nav-item">Browse Users</a>
+                </li>
+                <li>
+                    <a ng-click="viewallbands()" class="nav-item">Browse Bands</a>
+                </li>
+                <li>
+                    <a ng-click="band_SignUp()" class="nav-item">Register a Band</a>
+                </li>
+                <li>
+                    <a ng-click="" class="nav-item2"><center><img src="https://i.imgur.com/PkV1Oqp.jpg" height="40" width="40" /></center><center>1</center></a>
+                </li>
+                <li>
+                    <a href="#" class="nav-item2">
+                        {{thisUserDetails.username}}<br />
+                        <center><img src="{{thisUserDetails.imageURL}}" height="50" width="50" /></center>
+                    </a>
+                    <div class="nav-content">
+                        <div class="nav-sub">
+                            <ul>
+                                <li><a ng-click="displayEditUserDetails(thisUserDetails.userId)">Account</a></li>
+                                <li><a ng-click="logout()">Log Out</a></li>
+                                <li><a ng-click="displayMyBands()">My Band</a></li>Currently only lists all bands
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <br />
+
+        </div>-->
+        <!--Username and invite buttons-->
+
+        <div class="infoboxtop">
+            <div class="proffloatleft">
+                <div class="proffloatlefttop">
+                    <div class="username">
+                        {{singleUser.username}}
+                    </div>
+                    <button class="invitebutton">Invite to Band<br /><div class="material-icons">group_add</div></button>
+                </div>
+                <div class="proffloatleftbottom">
+                    <div class="biobox">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="proffloatright">
+                <!--PROFILE PHOTO-->
+                <img class="profpic" src="{{singleUser.imageURL}}" alt="Profile Photo" height="200" width="200" align="middle" /><br />
+                <!--SOCIAL MEDIA ICON BUTTONS-->
+                <a href="{{singleUser.spotifyURL}}">
+                    <input type="image" id="spotify" src="https://www.freepnglogos.com/uploads/spotify-logo-png/spotify-icon-marilyn-scott-0.png" alt="Spotify" height="66" width="66" align="middle"/>
+                </a>
+                <a href="{{singleUser.youtubeURL}}">
+                    <input type="image" id="youtube" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/YouTube_social_white_circle_%282017%29.svg/1024px-YouTube_social_white_circle_%282017%29.svg.png" alt="Youtube" height="66" width="66" align="middle" />
+                </a>
+                <a href="{{singleUser.soundcloudURL}}"><input type="image" id="soundcloud" src="https://cdn3.iconfinder.com/data/icons/ultimate-social/150/32_soundcloud-512.png" alt="Soundcloud" height="66" width="66" align="middle" /></a>
+            </div>
+        </div>
+
+        <div class="userdetailsbox">
+            <div class="detailsfloatleft">
+                <div class="instruments">
+                    <div class="bold">Instruments:</div>
+                    <ul><li ng-if="status== 404">User does not yet have any specified instruments</li><li ng-if="status== 200" ng-repeat="userInstrument in userInstruments">{{userInstrument.instrumentName}}</li></ul>
+                </div>
+                <div class="genres">
+                    <div class="bold">Genres:</div>
+                    <ul><li ng-if="status== 404">User does not yet have any specified genres</li><li ng-if="status== 200" ng-repeat="userGenre in userGenres">{{userGenre.genreName}}</li></ul>
+                </div>
+            </div>
+            <div class="detailsfloatright">
+                <div class="detailsfloatrightup">
+                    <div class="region">
+                        <img src="http://www.newdesignfile.com/postpic/2011/10/google-map-location-pin-icons_211210.png" height="15" /> {{singleUser.regionName}}
+                    </div>
+                </div>
+                <div class="detailsfloatrightupdown">
+                    <div class="hiddencontact">
+                        To request {{singleUser.username}}'s full contact details please <a href="#">click here.</a>
+                    </div>
+                    <!--<div class="authorisedcontact">
+                        {{singleUser.username}} has shared their contact details with you.<br /><br />
+                            <table class="editedbullet" align="center">
+                                <tr>
+                                    <td class="material-icons" width="25%" align="right">
+                                        person     
+                                    </td>
+                                    <td class="rightalign">
+                                        {{singleUser.firstName}} {{singleUser.lastName}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="material-icons">
+                                        phone     
+                                    </td>
+                                    <td class="rightalign">
+                                         {{singleUser.contactNo}}   
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="material-icons">
+                                        email     
+                                    </td>
+                                    <td class="rightalign">
+                                        {{singleUser.email}}
+                                    </td>
+                                </tr>
+                            </table>
+                
+                    </div>-->
+            </div>
+          </div>
+
+                    <!--<td ng-if="beingBand == 'true'" align="left" width="10%"><button class="button">Contact</button><button ng-if="beingBand == 'true'" class="button">Invite</button></td>-->
+
+        
+
+
+
+        <!--test
+        <button class="button" ng-click="requestContact()">Request Contact</button><br />
+        <label ng-show="contactRequestMade">You have requested contact details</label>-->
+        <!--EXTERNAL HYPERLINK CODE DEVELOPMENT
+        This links back to the created function in the controller, navigating to an external site in a new tab.
+        This needs to be incorporated into the social media image buttons, and functions need to be created to pull user URLs-->
+        <!--<a class="navLinkHcp" href="{{googleurl}}" title="testlink" target="_blank" ng-click="linkModelFunc" (hcpurl)">google</a><br />
+            <a class="navLinkHcp" href="{{spotifyurl}}" title="spotifylink" target="_blank" ng-click="linkModelFunc" (hcpurl)">spotify</a><br />
+            <a class="navLinkHcp" href="{{youtubeurl}}" title="youtubelink" target="_blank" ng-click="linkModelFunc" (hcpurl)">youtube</a><br />
+            <a class="navLinkHcp" href="{{soundcloudurl}}" title="soundcloudlink" target="_blank" ng-click="linkModelFunc" (hcpurl)">soundcloud</a><br />-->
+    </div>
+    <!--ADDED USER EDITING SECTION-->
+    <div ng-show="editingUserDetails">
+        <h1>My Details</h1>
+        <label>Username: {{thisUserDetails.username}}</label>
+        <label>Date Joined: {{thisUserDetails.dateJoined | date}}</label>
+        <label>Last Logged in: {{thisUserDetails.lastLogin| date}}</label>
+
+        <h2>Editing User Details</h2>
+        <label>First Name: <input ng-model="editFirstName" /></label><br />
+        <label>Last Name: <input ng-model="editLastName" /></label><br />
+        <label>Username: <input ng-model="editUsername" /></label><br />
+        <label>Email: <input ng-model="editEmail" /></label><br />
+        <label>Contact: <input ng-model="editContactNo" /></label><br />
+        <label>Bio: <input ng-model="editUserBio" /></label><br />
+        <label>Password: <input ng-model="editPassword" /></label><br />
+        <label>Spotify: <input ng-model="editSpotify" /></label><br />
+        <label>Soundcloud: <input ng-model="editSoundcloud" /></label><br />
+        <label>Youtube: <input ng-model="editYoutube" /></label><br />
+        <label>Profile Picture: <input ng-model="editPic" /></label><br />
+        <label>
+            Avaliability: <select ng-model="selectedUserAvaliability" ng-options="x for (x, y) in availability">
+                <option value=""></option>
+            </select>
+        </label><br />
+        <label>
+            Region: <select ng-model="editSelectedRegion" ng-options="Region.regionName for Region in regionList">
+                <option value="">
+                    Select Region
+
+                </option>
+            </select>
+        </label><br />
+        <button ng-click="editUser()"> Save</button>
+        <button ng-click="cancelEdit()">Cancel</button>
+    </div>
+    <!--!!!!!!!!!!!!!!!!!!!!! CHANGE - REMOVED DEAD BUTTONS HERE !!!!!!!!!!!!!!!!!!!!!!!!!-->
+    <!--List of all users instruments-->
+    <div ng-show="showUserInstruments">
         <!--searches through individual users-->
-        <h1>List of users - Get request from DB</h1>
-        <label>Search users:<input ng-model="search" type="text" /></label>
+        <h1>List of Instruments</h1>
         <table>
             <tr>
                 <th>
                     User Id
                 </th>
                 <th>
-                    User's Name
+                    Instrument Id
                 </th>
                 <th>
-                    Email
+                    Instrument Name
                 </th>
             </tr>
-            <tr ng-repeat="user in users | filter:search">
+            <tr ng-repeat="userInstrument in userInstruments">
                 <td>
-                    {{user.userId}}
+                    {{userInstrument.userId}}
                 </td>
                 <td>
-                    {{user.username}}
+                    {{userInstrument.instrumentId}}
                 </td>
                 <td>
-                    {{user.email}}
+                    {{userInstrument.instrumentName}}
                 </td>
+                <td>
+                    <button ng-click="removeInstrument(userInstrument)">Remove</button>
+                </td>
+
                 <!--<td>
-                    <a ng-click="remove(user)" href="">
+                    <a ng-click="" href="">
                         Remove
                     </a>
                 </td>-->
+            </tr>
+        </table>
+        <label>
+            Instrument: <select ng-model="selectedInstrument" ng-options="Instrument.instrumentName for Instrument in instrumentList">
+                <option value="">
+                    Select Instrument
+
+                </option>
+            </select>
+        </label>
+        <button ng-click="addUserInstrument()">Add Instrument</button><br />
+    </div>
+
+    <!--List of all users genres-->
+    <div ng-show="showUserGenres">
+        <!--searches through individual users-->
+        <h1>List of Genres</h1>
+        <table>
+            <tr>
+                <th>
+                    User Id
+                </th>
+                <th>
+                    Genre Id
+                </th>
+                <th>
+                    Genre Name
+                </th>
+            </tr>
+            <tr ng-repeat="userGenre in userGenres">
                 <td>
-                    <button ng-click="viewThisUserProfile(user)">Profile</button>
+                    {{userGenre.userId}}
                 </td>
+                <td>
+                    {{userGenre.genreId}}
+                </td>
+                <td>
+                    {{userGenre.genreName}}
+                </td>
+                <td>
+                    <button ng-click="removeGenre(userGenre)">Remove</button>
+                </td>
+                <!--<td>
+                    <a ng-click="" href="">
+                        Remove
+                    </a>
+                </td>-->
+            </tr>
+        </table>
+        <label>
+            Add Genre: <select ng-model="selectedGenre" ng-options="Genre.genreName for Genre in genreList">
+                <option value="">
+                    Select Genre
+
+                </option>
+            </select>
+        </label>
+        <button ng-click="addUserGenre()">Add Genre</button><br />
+    </div>
+
+    <!--ACCOUNT MANAGEMENT PAGE currently not in use-->
+    <!--FORMATTED NAV BAR-->
+    <div ng-show="showAccMan">
+        <div class="nav-main">
+            <div class="logo">BandMates</image></div>
+            <ul>
+                <li>
+                    <a ng-click="viewallusers()" class="nav-item">Browse Users</a>
+                </li>
+                <li>
+                    <a ng-click="viewallbands()" class="nav-item">Browse Bands</a>
+                </li>
+                <li>
+                    <a ng-click="band_SignUp()" class="nav-item">Register a Band</a>
+                </li>
+                <li>
+                    <a href="#" class="nav-item2">
+                        {{thisUserDetails.username}}<br />
+                        <center><img src="{{thisUserDetails.imageURL}}" height="50" width="50" /></center>
+                    </a>
+                    <div class="nav-content">
+                        <div class="nav-sub">
+                            <ul>
+                                <li><a ng-click="displayEditUserDetails(thisUserDetails.userId)">Account</a></li>
+                                <li><a ng-click="logout()">Log Out</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <br /><br /><br />
+
+        <div>
+            <h1>Account Management</h1>
+            This page is currently being used to store all details from the user API for the logged in user.
+            UserId: {{thisUserDetails.userId}}<br />
+            Email: {{thisUserDetails.email}}<br />
+            Password: {{thisUserDetails.password}}<br />
+            Username: {{thisUserDetails.username}}<br />
+            Image URL: {{thisUserDetails.imageURL}}<br />
+            First Name: {{thisUserDetails.firstName}}<br />
+            Last Name: {{thisUserDetails.lastName}}<br />
+            Contact No: {{thisUserDetails.contactNo}}<br />
+            Region Name: {{thisUserDetails.regionName}}<br />
+            Region ID: {{thisUserDetails.regionId}}<br />
+            Bio Text: {{thisUserDetails.bioText}}<br />
+            Spotify URL: {{thisUserDetails.spotifyURL}}<br />
+            Youtube URL: {{thisUserDetails.youtubeURL}}<br />
+            Soundcloud URL: {{thisUserDetails.soundcloudURL}}<br />
+            Availability: {{thisUserDetails.availability}}<br />
+            Account Type: {{thisUserDetails.role}}<br />
+            Last Login: {{thisUserDetails.lastLogin}}<br />
+            Date Joined: {{thisUserDetails.dateJoined}}<br />
+            Instruments: <div ng-repeat="userInstrument in userInstruments">{{userInstrument.instrumentName}}</div>
+        </div>
+    </div>
+    <!--FORMATTED LOGIN PAGE-->
+    <div ng-show="showRealLog" ng-controller="authenticationController">
+
+        <div class="loginbox">
+            <form>
+
+                <input type="text" name="" placeholder="Username">
+
+                <input type="password" name="" placeholder="Password">
+
+                <input type="submit" name="" value="Log In" ng-click="login()">
+
+                <center><a ng-click="beginSignUp()">Don't have an account? Register Here!</a></center>
+            </form>
+
+        </div>
+
+    </div>
+
+    <!--Band Editing-->
+    <div ng-show="editingBandDetails">
+        <h2>Editing Band Details</h2>
+        <label>Band Name: <input ng-model="editBandName" /></label><br />
+        <label>Email: <input ng-model="editBandEmail" /></label><br />
+        <label>Contact: <input ng-model="editBandContactNo" /></label><br />
+        <label>Bio: <input ng-model="editBandBio" /></label><br />
+        <label>Spotify: <input ng-model="editBandSpotify" /></label><br />
+        <label>Soundcloud: <input ng-model="editBandSoundcloud" /></label><br />
+        <label>Youtube: <input ng-model="editBandYoutube" /></label><br />
+        <label>Profile Picture: <input ng-model="editBandPic" /></label><br />
+
+
+        <label>
+            Region: <select ng-model="editSelectedBandRegion" ng-options="Region.regionName for Region in regionList">
+                <option value="">
+                    Select Region
+
+                </option>
+            </select>
+
+        </label><br />
+        <label>
+            Genre: <select ng-model="editSelectedBandGenre" ng-options="Genre.genreName for Genre in genreList">
+                <option value="">
+                    Select Genre
+
+                </option>
+            </select>
+        </label><br />
+        <button ng-click="editBand()"> Sav</button>
+        <button ng-click="cancelBandEdit()">Cancel </button>
+    </div>
+
+    <!--Rough start for listing users own bands-->
+    <div ng-show="myBands">
+        <!--searches through individual users-->
+        <h1>My Bands</h1>
+        <table>
+            <tr>
+                <th>
+                    Band Name
+                </th>
+                <th>
+                    Instrument Name
+                </th>
+                <th>Band Email</th>
+            </tr>
+            <tr ng-repeat="band in bands">
+                <td>
+                    {{band.bandId}}
+                </td>
+                <td>
+                    {{band.bandName}}
+                </td>
+                <td>
+                    {{band.email}}
+                </td>
+                <td>
+                    <button ng-click="switchToBand(band)">
+                        Switch to band
+                    </button>
+                </td>
+                <td>
+                    <button ng-click="displayRequestForBand(band)">
+                        View Requests
+                    </button>
+                </td>
+                <td>
+                    <button ng-click="">Band Profile</button>
+                </td>
+
+                <td>
+                    <button ng-click="removeBand(band)">
+                        Remove
+                    </button>
+                </td>
+                <td>
+                    <button ng-click="displayBandAdminDetails(band)">Band Account Mangement</button>
+                </td>
+                <td><button ng-click="displayVacancy(band)">View Vacancy</button></td>
+                <td><button ng-click="displayMembers(band)">View Members</button></td>
             </tr>
         </table>
     </div>
 
-    <!--Added Profile View-->
-    <!-- Need info from beans class -->
-    <div ng-show="viewUserProfile">
+    <div ng-show="viewMembers">
 
-        <!--use this for a background image-->
-        <!--<table style="background-image:url(https://www.freewebheaders.com/wordpress/wp-content/gallery/music/illustrative-semi-acoustic-guitar-on-blue-background-header.jpg) ; background-position:center" ; background-width="100%" align="center" class="auto-style1">-->
+        <h1>Band Members </h1>
+        <table>
+            <tr>
+                <th>
+                    Band Member
+                </th>
+                <th>
+                    Bio
+                </th>
+                <th>
+                    Instrument
+                </th>
+                <th>
+                    Date Joined
+                </th>
+            </tr>
+            <tr ng-repeat="bandMember in bandMembers">
+                <td>
+                    {{bandMember.firstName}}  {{bandMember.lastName}}
+                </td>
+                <td>
+                    {{bandMember.bioText}}
+                </td>
+                <td>
+                    {{bandMember.instrumentName}}
+                </td>
+                <td>
+                    {{bandMember.dateJoinedBand}}
+                </td>
 
-
-
-      
-            <!--NAV BAR PLACEHOLDER - SEE BUTTONS SECTION AND REPLACE ACCORDINGLY-->
-            <table align="center" class="auto-style1">
-                <tr bgcolor="white">
-                    <td colspan="2" align="center"><image src="https://scontent-lht6-1.xx.fbcdn.net/v/t1.15752-9/56214459_281433406116403_7597284464967811072_n.png?_nc_cat=108&_nc_ht=scontent-lht6-1.xx&oh=795d416d1c1300e43702aabc3d95893b&oe=5D4C35A9" height="100" width="300"></image></td>
-                    <td><button class="button">Search Bands</button></td>
-                    <td><button class="button">Search Musicians</button></td>
-                    
-                                   
-                <td valign="middle" class="dropdown">
-                    <button class="button">
-                     DanHod <br /><img src="{{singleUser.imageURL}}" height="50" width="50" />      <!--CHANGE CODE HERE TO PULL CURRENTLY LOGGED IN USER-->
-                        <!--<i class="fa fa-caret-down"></i>-->
+                <td>
+                    <button ng-click="">
+                        Remove Member
                     </button>
-                            <div class="dropdown-content">
-                                <a href="#">Account Management</a>
-                                <a ng-click="logout()">Log Out</a>
-                                </div>
                 </td>
-                </tr>
-            </table>
-
-
-
-
-
-            <!--Username and invite buttons-->
-            <table align="center" class="auto-style1">
-                <tr>
-                    
-                    <td><label><h1>{{singleUser.username}}</h1></label></td>
-                 
-                </tr>
-
-                <tr>
-                    <!--Profile photo and social media icons-->
-                    <td>
-                        <!--PROFILE PHOTO-->
-                        <img src="{{singleUser.imageURL}}" alt="Profile Photo" height="200" width="200" align="middle" border="5" /><br />
-
-                        <!--SOCIAL MEDIA ICON BUTTONS-->
-                        <a href="{{singleUser.spotifyURL}}">
-                            <input type="image" id="spotify" src="https://www.freepnglogos.com/uploads/spotify-logo-png/spotify-icon-marilyn-scott-0.png" alt="Spotify" height="66" width="66" align="middle" />
-                            <a href="{{singleUser.youtubeURL}}">
-                                <input type="image" id="youtube" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/YouTube_social_white_circle_%282017%29.svg/1024px-YouTube_social_white_circle_%282017%29.svg.png" alt="Youtube" height="66" width="66" align="middle" />
-                                <a href="{{singleUser.soundcloudURL}}"><input type="image" id="soundcloud" src="https://cdn3.iconfinder.com/data/icons/ultimate-social/150/32_soundcloud-512.png" alt="Soundcloud" height="66" width="66" align="middle" /></a>
-
-                    </td>
-                    </tr>
-
-
-            </table>
-            <br />
-
-        <table align="center" class="auto-style1">
-            <tr>
-                <td width="10%"></td>
-                <td width="35%"><label><h1>{{singleUser.username}}</h1></label></td>
-                <td width="10%"></td>
-                <td width="35%"></td>
-                <td width="10%"></td>
             </tr>
-
-            <tr>
-                <td></td>
-                <!--Profile photo and social media icons-->
-                <td rowspan="2">
-                    <!--PROFILE PHOTO-->
-                    <img src="{{singleUser.imageURL}}" alt="Profile Photo" height="200" width="200" align="middle" border="5" /><br />
-
-                    <!--SOCIAL MEDIA ICON BUTTONS-->
-                    <a href="{{singleUser.spotifyURL}}">
-                        <input type="image" id="spotify" src="https://www.freepnglogos.com/uploads/spotify-logo-png/spotify-icon-marilyn-scott-0.png" alt="Spotify" height="66" width="66" align="middle" />
-                        <a href="{{singleUser.youtubeURL}}">
-                            <input type="image" id="youtube" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/YouTube_social_white_circle_%282017%29.svg/1024px-YouTube_social_white_circle_%282017%29.svg.png" alt="Youtube" height="66" width="66" align="middle" />
-                            <a href="{{singleUser.soundcloudURL}}"><input type="image" id="soundcloud" src="https://cdn3.iconfinder.com/data/icons/ultimate-social/150/32_soundcloud-512.png" alt="Soundcloud" height="66" width="66" align="middle" /></a>
-
-                <td></td>
-                <td align="left" valign="middle">
-                    <img src="https://www.freeiconspng.com/uploads/guitar-icon-png-21.png" height="30" width="30" />&nbsp;&nbsp;Guitar<br />
-                    <img src="http://www.transparentpng.com/thumb/musical-notes/music-notes-png-clipart-4.png" height="30" width="30" />&nbsp;&nbsp;Rock, Indie<br />
-                    <img src="http://www.stickpng.com/assets/thumbs/588a668cd06f6719692a2d1b.png" height="30" width="30" />&nbsp;&nbsp;{{singleUser.regionName}}<br />
-                    <img src="http://www.stickpng.com/assets/images/584856b4e0bb315b0f7675ac.png" height="30" width="30" />&nbsp;&nbsp;{{singleUser.email}}<br />
-                    <img src="http://www.stickpng.com/assets/thumbs/5a4525b2546ddca7e1fcbc82.png" height="30" width="30" />&nbsp;&nbsp;{{singleUser.contactNo}}
-                </td>
-
-            </tr>
-            <tr>
-                <td width="10%"></td>
-                <td width="35%"></td>
-                <td align="left" width="10%"><button class="button">Contact</button><button class="button">Invite</button></td>
-                <td width="35%"></td>
-                <td width="10%"></td>
-            </tr>
-
-
         </table>
-        <br />
+        <label>
+            Add Member: <select ng-model="selectedUserAdding" ng-options=" User.username for User in users ">
+                <option value="">
+                    Select Member
 
-            <table layout="fixed" align="center">
-                <tr>
-                    <td width="25%"></td>
+                </option>
+            </select>
+        </label>
+        <label>
+            Add Instrument : <select ng-model="selectedInstrument" ng-options="Instrument.instrumentName for Instrument in instrumentList">
+                <option value="">
+                    Select Instrument
 
-                    <td width="50%" class="boxed">
-                        iudsfgouisdhiufhdaoifdjasoifhasoilfhiuashfiouashfsaf
-                    </td>
-                    <td width="25%"></td>
-                </tr>
-            </table>
+                </option>
+            </select>
+        </label>
+        <button ng-click="addMembertoBand()">Add Member</button>
+    </div>
 
-            <br />
-            <br />
+    <div ng-show="vacancy">
+
+        <h1>Band Vacancy </h1>
+        <table>
+            <tr>
+                <th>
+                    Band Name
+                </th>
+                <th>
+                    InstrumentName
+                </th>
+            </tr>
+            <tr ng-repeat="vacancy in vacancies">
+                <td>
+                    {{vacancy.bandName}}
+                </td>
+                <td>
+                    {{vacancy.instrumentName}}
+                </td>
+
+                <td>
+                    <button ng-click="removeVacancy(vacancy.vacancyId)">
+                        Remove
+                    </button>
+                </td>
+            </tr>
+        </table>
+        <label>
+            Add Instrument Vacancy: <select ng-model="selectedInstrument" ng-options="Instrument.instrumentName for Instrument in instrumentList">
+                <option value="">
+                    Select Instrument
+
+                </option>
+            </select>
+        </label>
+        <button ng-click="addVacancy()">Add Vacancy</button>
+    </div>
+
+    <div ng-show="userRequests">
+
+        <h1>View user Request for band </h1>
+
+        <table>
+            <tr>
+                <th>
+                    Username
+                </th>
+                <th>
+                    InstrumentName
+                </th>
+            </tr>
+            <tr ng-repeat="userRequest in userRequests">
+                <td>
+                    {{userRequest.username}}
+                </td>
+                <td>
+                    {{userRequest.requestDate | date}}
+                </td>
+
+                <td>
+                    <button ng-click="viewThisUserProfile(userRequest)">View Profile</button>
+
+                </td>
+                <td><button ng-click="">Ignore Request</button></td>
+                <td><button ng-click="">Accept</button></td>
+            </tr>
+        </table>
+
+    </div>
+
+    <div ng-show="displaynotifications"><h1>This is not working</h1></div>
 
 
-            <!--test
 
-        <button class="button" ng-click="requestContact()">Request Contact</button><br />
-        <label ng-show="contactRequestMade">You have requested contact details</label>-->
-            <!--EXTERNAL HYPERLINK CODE DEVELOPMENT
-        This links back to the created function in the controller, navigating to an external site in a new tab.
-        This needs to be incorporated into the social media image buttons, and functions need to be created to pull user URLs-->
-            <!--<a class="navLinkHcp" href="{{googleurl}}" title="testlink" target="_blank" ng-click="linkModelFunc" (hcpurl)">google</a><br />
-            <a class="navLinkHcp" href="{{spotifyurl}}" title="spotifylink" target="_blank" ng-click="linkModelFunc" (hcpurl)">spotify</a><br />
-            <a class="navLinkHcp" href="{{youtubeurl}}" title="youtubelink" target="_blank" ng-click="linkModelFunc" (hcpurl)">youtube</a><br />
-            <a class="navLinkHcp" href="{{soundcloudurl}}" title="soundcloudlink" target="_blank" ng-click="linkModelFunc" (hcpurl)">soundcloud</a><br />
-        </div>-->
-            <!--!!!!!!!!!!!!!!!!!!!!! CHANGE - REMOVED DEAD BUTTONS HERE !!!!!!!!!!!!!!!!!!!!!!!!!-->
 
-            <script src="app/myApp.js"></script>
-            s"
-            <script src="app/main/mainModule.js"></script>
-            <script src="app/main/mainController.js"></script>
+
+
+
+
+
+    <script src="app/myApp.js"></script>
+    <script src="app/main/mainModule.js"></script>
+
+    <script src="app/main/mainController.js"></script>
+    <!--<script src="app/authentication/authenticationModule.js"></script>-->
+    <script src="app/main/authenticationController.js"></script>
+
 </body>
 </html>
