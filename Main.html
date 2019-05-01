@@ -1014,15 +1014,14 @@
             }
 
 
-            .entryforminputs {
-                margin-left: auto;
-                margin-right: auto;
-            }
+        .entryforminputs {
+            margin-left: auto;
+            margin-right: auto;
+        }
 
         .inputwidth {
             width: 165px;
         }
-
     </style>
 
 
@@ -1167,11 +1166,12 @@
                         </td>
 
                         <td width="50%" align="left">
-                            <input align="left" name="username" ng-model="newUserName" required />
+                            <input align="left" name="username" ng-pattern="/^[a-z]*$/" ng-model="newUserName" required />
                         </td>
                         <td>
                             <div ng-show="step1Form.username.$touched">
                                 <span ng-show="step1Form.username.$error.required">Required!</span>
+                                <span ng-show="step1Form.username.$error.pattern">Username must be lowercase</span>
                             </div>
                         </td>
                     </tr>
@@ -1333,7 +1333,7 @@
 
 
     <!--Band Sign Up-->
-    <div ng-show="bandSignUp">
+    <!--<div ng-show="bandSignUp">
         <form name="newBand">
             <h2>Step 1: Band Details</h2>
             <label>Band Name:<input required name="newBandName" ng-model="newBandName" /></label><br />
@@ -1400,10 +1400,9 @@
         </form>
         <button ng-click="addBand()" type="submit" ng-disabled="newBand.$invalid">Submit</button>
         <div ng-if="addBandStatus == 406">You didn't enter enough information!</div>
-    </div>
-
+    </div>-->
     <!--NEW BAND REGISTRATION - STEP 1-->
-    <!--<div ng-show="bandSignUp" novalidate class="regbg">
+    <div ng-show="bandSignUp" novalidate class="regbg">
         <form name="newband1">
             <div class="registrationpanel">
 
@@ -1442,20 +1441,17 @@
                             </div>
                         </td>
                     </tr>
-
                 </table>
 
-
                 <center>
-                    <button class="button" ng-click="cancelSignUp()">Cancel</button>
-                    <button class="button" ng-click="gostep2()" ng-disabled="step1Form.$invalid">Next</button>
+                    <button class="button" ng-click="goBandStep2()" ng-disabled="newband1.$invalid">Next</button>
                 </center>
 
             </div>
         </form>
-    </div>-->
+    </div>
     <!--NEW BAND REGISTRATION - STEP 2-->
-    <!--<div ng-show="bandSignUp" novalidate class="regbg">
+    <div ng-show="bandSignUp2" novalidate class="regbg">
         <form name="newband2">
             <div class="registrationpanel">
 
@@ -1473,14 +1469,11 @@
                             <select class="inputwidth" name="newBandRegion" ng-model="selectedBandRegion" required ng-options="Region.regionName for Region in regionList">
                                 <option value="">
                                     Select Region
-
                                 </option>
                             </select>
                         </td>
-
                         <td>
                             <div ng-show="newBand2.newBandRegion.$touched">
-
                                 <span ng-show="newBand2.newBandRegion.$error.required">Required!</span>
                             </div>
                         </td>
@@ -1489,7 +1482,6 @@
                         <td width="50%" align="center">
                             Genre*
                         </td>
-
                         <td width="50%" align="left">
                             <select class="inputwidth" name="newBandGenre" ng-model="selectedBandGenre" required ng-options="Genre.genreName for Genre in genreList">
                                 <option value="">
@@ -1497,11 +1489,9 @@
                                 </option>
                             </select>
                         </td>
-
                         <td>
-                            <div ng-show="newBand2.newBandName.$touched">
-
-                                <span ng-show="newBand2.newBandName.$error.required">Required!</span>
+                            <div ng-show="newBand2.newBandGenre.$touched">
+                                <span ng-show="newBand2.newBandGenre.$error.required">Required!</span>
                             </div>
                         </td>
                     </tr>
@@ -1509,23 +1499,18 @@
                         <td width="50%" align="center">
                             Profile Picture URL
                         </td>
-
                         <td width="50%" align="left">
                             <input class="inputwidth" name="newBandImageURL" ng-model="newBandImageURL" />
-                        </td>
-                        <td>
-
                         </td>
                     </tr>
                     <tr>
                         <td width="50%" align="center">
                             Spotify URL
                         </td>
-
                         <td width="50%" align="left">
                             <input class="inputwidth" name="newBandSpotifyURL" ng-model="newBandSpotifyURL" />
                         </td>
-                        <td></td>
+
                     </tr>
                     <tr>
                         <td width="50%" align="center">
@@ -1553,15 +1538,15 @@
 
 
                 <center>
-                    <button class="button" ng-click="cancelSignUp()">Cancel</button>
-                    <button class="button" ng-click="gostep2()" ng-disabled="step1Form.$invalid">Next</button>
+                    <button class="button" ng-click="goBandStep1()">Back</button>
+                    <button class="button" ng-click="goBandStep3()" ng-disabled="newBand2.$invalid">Next</button>
                 </center>
 
             </div>
         </form>
-    </div>-->
+    </div>
     <!--NEW BAND REGISTRATION - STEP 3-->
-    <!--<div ng-show="bandSignUp" novalidate class="regbg">
+    <div ng-show="bandSignUp3" novalidate class="regbg">
         <form name="newband3">
             <div class="registrationpanel">
 
@@ -1590,9 +1575,8 @@
                         <td width="50%" align="center">
                             Email Address
                         </td>
-
                         <td width="50%" align="left">
-                            <input class="inputwidth" name="newBandSpotifyURL" ng-model="newBandSpotifyURL" />
+                            <input class="inputwidth" required type="email" ng-model="newBandEmail" name="newBandEmail" />
                         </td>
                         <td>
                             <div ng-show="newBand3.newBandEmail.$touched">
@@ -1606,15 +1590,15 @@
 
 
                 <center>
-                    <button class="button" ng-click="cancelSignUp()">Cancel</button>
-                    <button class="button" ng-click="gostep2()" ng-disabled="step1Form.$invalid">Next</button>
+                    <button class="button" ng-click="goBandStep2()">Back</button>
+                    <button class="button" ng-click="goBandStep4()" ng-disabled="newband3.$invalid">Next</button>
                 </center>
 
             </div>
         </form>
-    </div>-->
+    </div>
     <!--NEW BAND REGISTRATION - STEP 4-->
-    <div ng-show="bandSignUp" novalidate class="regbg">
+    <div ng-show="bandSignUp4" novalidate class="regbg">
         <form name="newband4">
             <div class="registrationpanel">
 
@@ -1642,17 +1626,18 @@
                             </div>
                         </td>
                     </tr>
-
                 </table>
-
-
                 <center>
-                    <button class="button" ng-click="cancelSignUp()">Cancel</button>
-                    <button class="button" ng-click="gostep2()" ng-disabled="step1Form.$invalid">Next</button>
+                    <button class="button" ng-click="goBandStep3()">Back</button>
+                    <button class="button" ng-click="addBand()" type="submit" ng-disabled="newband4.$invalid">Submit</button><br />
+                    <div ng-if="addBandStatus == 500">Please check the information you entered, some of your URL's might be too long.</div>
+                    <div ng-if="addBandStatus == 406">You didn't enter enough information!</div>
                 </center>
 
             </div>
+
         </form>
+
     </div>
 
 
@@ -2138,6 +2123,9 @@
                 <span ng-show="editingUser.bio.$error.required">Bio is required</span>
             </div>
             <label>Password: <input ng-model="editPassword" /></label><br />
+            <div ng-show="editingUser.password.$touched">
+                <span ng-show="editingUser.password.$error.required">Password is required.</span>
+            </div>
             <label>Spotify: <input ng-model="editSpotify" /></label><br />
             <label>Soundcloud: <input ng-model="editSoundcloud" /></label><br />
             <label>Youtube: <input ng-model="editYoutube" /></label><br />
@@ -2149,7 +2137,7 @@
             </label><br />
             <label>
                 Region: <select name="region" ng-model="editSelectedRegion" required ng-options="Region.regionName for Region in regionList">
-                    <option value="">Select Region</option>
+                    <option value="">{{editSelectedRegionName}}</option>
                 </select>
             </label><br />
             <div ng-show="editingUser.region.$touched">
@@ -2265,7 +2253,7 @@
             <label>
                 Region: <select required name="region" ng-model="editSelectedBandRegion" ng-options="Region.regionName for Region in regionList">
                     <option value="">
-                        Select Region
+                        {{editSelectedBandRegionName}}
 
                     </option>
                 </select>
@@ -2277,7 +2265,8 @@
             <label>
                 Genre: <select name="genre" required ng-model="editSelectedBandGenre" ng-options="Genre.genreName for Genre in genreList">
                     <option value="">
-                        Select Genre
+                        {{editSelectedBandGenreName}}
+
 
                     </option>
                 </select>
@@ -2354,729 +2343,737 @@
     </div>
 
 
-        <!--SHOWING ALL MEMBERS OF THE BAND-->
-        <div ng-show="viewMembers">
-            <h1>Band Members </h1><div ng-if="getBandMembersStatus == 404">There are no members in this band!</div>
-            <div ng-if="getBandMembersStatus == 200">
-                <table>
-                    <tr>
-                        <th>
-                            Band Member
-                        </th>
-                        <th>
-                            Bio
-                        </th>
-                        <th>
-                            Instrument
-                        </th>
-                        <th>
-                            Date Joined
-                        </th>
-                    </tr>
-                    <tr ng-repeat="bandMember in bandMembers">
-                        <td>
-                            {{bandMember.firstName}}  {{bandMember.lastName}}
-                        </td>
-                        <td>
-                            {{bandMember.bioText}}
-                        </td>
-                        <td>
-                            {{bandMember.instrumentName}}
-                        </td>
-                        <td>
-                            {{bandMember.dateJoinedBand | date}}
-                        </td>
-                        <td>
-                            <button ng-click="removeMemberFromBand(bandMember)">
-                                Remove Member
-                            </button>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <label>
-                Add Member: <select ng-model="selectedUserAdding" ng-options=" User.username for User in users ">
-                    <option value="">
-                        Select Member
-
-                    </option>
-                </select>
-            </label>
-            <label>
-                Add Instrument : <select ng-model="selectedMemberInstrument" ng-options="Instrument.instrumentName for Instrument in instrumentList">
-                    <option value="">
-                        Select Instrument
-
-                    </option>
-                </select>
-            </label>
-            <button ng-click="addMembertoBand()">Add Member</button>
+    <!--SHOWING ALL MEMBERS OF THE BAND-->
+    <div ng-show="viewMembers">
+        <h1>Band Members </h1><div ng-if="getBandMembersStatus == 404">There are no members in this band!</div>
+        <div ng-if="getBandMembersStatus == 200">
+            <table>
+                <tr>
+                    <th>
+                        Band Member
+                    </th>
+                    <th>
+                        Bio
+                    </th>
+                    <th>
+                        Instrument
+                    </th>
+                    <th>
+                        Date Joined
+                    </th>
+                </tr>
+                <tr ng-repeat="bandMember in bandMembers">
+                    <td>
+                        {{bandMember.firstName}}  {{bandMember.lastName}}
+                    </td>
+                    <td>
+                        {{bandMember.bioText}}
+                    </td>
+                    <td>
+                        {{bandMember.instrumentName}}
+                    </td>
+                    <td>
+                        {{bandMember.dateJoinedBand | date}}
+                    </td>
+                    <td>
+                        <button ng-click="removeMemberFromBand(bandMember)">
+                            Remove Member
+                        </button>
+                    </td>
+                </tr>
+            </table>
         </div>
+        <label>
+            Add Member: <select ng-model="selectedUserAdding" ng-options=" User.username for User in users ">
+                <option value="">
+                    Select Member
 
-        <!--BAND VACANCY VIEW-->
-        <div ng-show="vacancy">
+                </option>
+            </select>
+        </label>
+        <label>
+            Add Instrument : <select ng-model="selectedMemberInstrument" ng-options="Instrument.instrumentName for Instrument in instrumentList">
+                <option value="">
+                    Select Instrument
 
-            <h1>Band Vacancy </h1><div ng-if="vacanciesStaus == 404">Your band currently has no vacanies.</div><div ng-if="vacanciesStaus == 200">
-                <table>
-                    <tr>
-                        <th>
-                            Band Name
-                        </th>
-                        <th>
-                            InstrumentName
-                        </th>
-                    </tr>
-                    <tr ng-repeat="vacancy in vacancies">
-                        <td>
-                            {{vacancy.bandName}}
-                        </td>
-                        <td>
-                            {{vacancy.instrumentName}}
-                        </td>
+                </option>
+            </select>
+        </label>
+        <button ng-if="thisUserDetails.role != 'Admin'" ng-click="addMembertoBand()">Add Member</button>
+        <button ng-if="thisUserDetails.role == 'Admin'" ng-click="adminAddMembertoBand()">Admin Add Member</button>
 
-                        <td>
-                            <button ng-click="removeVacancy(vacancy.vacancyId)">
-                                Remove
-                            </button>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <label>
-                Add Instrument Vacancy: <select ng-model="selectedInstrument" ng-options="Instrument.instrumentName for Instrument in instrumentList">
-                    <option value="">
-                        Select Instrument
+    </div>
 
-                    </option>
-                </select>
-            </label>
-            <button ng-click="addVacancy()">Add Vacancy</button>
+    <!--BAND VACANCY VIEW-->
+    <div ng-show="vacancy">
+
+        <h1>Band Vacancy </h1><div ng-if="vacanciesStaus == 404">Your band currently has no vacanies.</div><div ng-if="vacanciesStatus == 200">
+            <table>
+                <tr>
+                    <th>
+                        Band Name
+                    </th>
+                    <th>
+                        InstrumentName
+                    </th>
+                </tr>
+                <tr ng-repeat="vacancy in vacancies">
+                    <td>
+                        {{vacancy.bandName}}
+                    </td>
+                    <td>
+                        {{vacancy.instrumentName}}
+                    </td>
+
+                    <td>
+                        <button ng-click="removeVacancy(vacancy.vacancyId)">
+                            Remove
+                        </button>
+                    </td>
+                </tr>
+            </table>
         </div>
+        <label>
+            Add Instrument Vacancy: <select ng-model="selectedInstrument" ng-options="Instrument.instrumentName for Instrument in instrumentList">
+                <option value="">
+                    Select Instrument
 
-        <!--BAND NOTIFICATION VIEW-->
-        <div ng-show="displayBandsNotifications">
-            <h1>View user Request for band </h1><div ng-if="status == 404">Band currently has no requests</div>
-            <div ng-if="status == 200">
+                </option>
+            </select>
+        </label>
+        <button ng-click="addVacancy()">Add Vacancy</button>
+    </div>
 
-                <h2>Requests for contact details</h2>
-                <table>
-                    <tr>
-                        <th>
-                            Username
-                        </th>
-                        <th>
-                            Date Sent
-                        </th>
-                        <th>
-                            Time Sent
-                        </th>
+    <!--BAND NOTIFICATION VIEW-->
+    <div ng-show="displayBandsNotifications">
+        <h1>View user Request for band </h1><div ng-if="status == 404">Band currently has no requests</div>
+        <div ng-if="status == 200">
 
-                    </tr>
-                    <tr ng-repeat="userRequest in userRequests" ng-if="userRequest.requestFrom == 'User' && userRequest.requestType == 1">
-                        <td>
-                            {{userRequest.username}}
-                        </td>
-                        <td>
-                            {{userRequest.requestDate | date}}
-                        </td>
-                        <td>
-                            {{userRequest.requestDate | date:'HH:mm:ss'}}
-                        </td>
+            <h2>Requests for contact details</h2>
+            <table>
+                <tr>
+                    <th>
+                        Username
+                    </th>
+                    <th>
+                        Date Sent
+                    </th>
+                    <th>
+                        Time Sent
+                    </th>
+
+                </tr>
+                <tr ng-repeat="userRequest in userRequests" ng-if="userRequest.requestFrom == 'User' && userRequest.requestType == 1">
+                    <td>
+                        {{userRequest.username}}
+                    </td>
+                    <td>
+                        {{userRequest.requestDate | date}}
+                    </td>
+                    <td>
+                        {{userRequest.requestDate | date:'HH:mm:ss'}}
+                    </td>
 
 
-                        <td>
-                            <button ng-click="viewThisUserProfile(userRequest)">View Profile</button>
+                    <td>
+                        <button ng-click="viewThisUserProfile(userRequest)">View Profile</button>
 
-                        </td>
-                        <td><button ng-click="ignoreRequesttoContactBand(userRequest)">Ignore Request</button></td>
-                        <td><button ng-click="acceptRequestToContactBand(userRequest)">Accept</button></td>
-                    </tr>
-                </table>
-                <h2>Requests to join band</h2>
-                <table>
-                    <tr>
-                        <th>
-                            Username
-                        </th>
-                        <th>
-                            Date Sent
-                        </th>
-                        <th>
-                            Time Sent
-                        </th>
-                    </tr>
-                    <tr ng-repeat="userRequest in userRequests" ng-if="userRequest.requestFrom == 'User' && userRequest.requestType == 4">
-                        <td>
-                            {{userRequest.username}}
-                        </td>
-                        <td>
-                            {{userRequest.requestDate | date}}
-                        </td>
-                        <td>
-                            {{userRequest.requestDate | date:'HH:mm:ss'}}
-                        </td>
+                    </td>
+                    <td><button ng-click="ignoreRequesttoContactBand(userRequest)">Ignore Request</button></td>
+                    <td><button ng-click="acceptRequestToContactBand(userRequest)">Accept</button></td>
+                </tr>
+            </table>
+            <h2>Requests to join band</h2>
+            <table>
+                <tr>
+                    <th>
+                        Username
+                    </th>
+                    <th>
+                        Date Sent
+                    </th>
+                    <th>
+                        Time Sent
+                    </th>
+                </tr>
+                <tr ng-repeat="userRequest in userRequests" ng-if="userRequest.requestFrom == 'User' && userRequest.requestType == 4">
+                    <td>
+                        {{userRequest.username}}
+                    </td>
+                    <td>
+                        {{userRequest.requestDate | date}}
+                    </td>
+                    <td>
+                        {{userRequest.requestDate | date:'HH:mm:ss'}}
+                    </td>
 
-                        <td>
-                            <button ng-click="viewThisUserProfile(userRequest)">View Profile</button>
+                    <td>
+                        <button ng-click="viewThisUserProfile(userRequest)">View Profile</button>
 
-                        </td>
-                        <td><button ng-click="ignoreRequesttoJoinBand(userRequest)">Ignore Request</button></td>
-                        <td><button ng-click="gotToAddMemberFromBand(userRequest)">Accept</button></td>
-                    </tr>
-                </table>
-                <h2>Unanswered Requests for contact details</h2>
-                <table>
-                    <tr>
-                        <th>
-                            Username
-                        </th>
-                        <th>
-                            Date Sent
-                        </th>
-                        <th>
-                            Time Sent
-                        </th>
+                    </td>
+                    <td><button ng-click="ignoreRequestToJoinBand(userRequest)">Ignore Request</button></td>
+                    <td><button ng-click="gotToAddMemberFromBand(userRequest)">Accept</button></td>
+                </tr>
+            </table>
+            <h2>Unanswered Requests for contact details</h2>
+            <table>
+                <tr>
+                    <th>
+                        Username
+                    </th>
+                    <th>
+                        Date Sent
+                    </th>
+                    <th>
+                        Time Sent
+                    </th>
 
-                    </tr>
-                    <tr ng-repeat="userRequest in userRequests" ng-if="userRequest.requestFrom == 'Band' && userRequest.requestType == 1">
-                        <td>
-                            {{userRequest.username}}
-                        </td>
-                        <td>
-                            {{userRequest.requestDate | date}}
-                        </td>
-                        <td>
-                            {{userRequest.requestDate | date:'HH:mm:ss'}}
-                        </td>
+                </tr>
+                <tr ng-repeat="userRequest in userRequests" ng-if="userRequest.requestFrom == 'Band' && userRequest.requestType == 1">
+                    <td>
+                        {{userRequest.username}}
+                    </td>
+                    <td>
+                        {{userRequest.requestDate | date}}
+                    </td>
+                    <td>
+                        {{userRequest.requestDate | date:'HH:mm:ss'}}
+                    </td>
 
-                    </tr>
-                </table>
-                <h2>Unanswered invites to join band</h2>
-                <table>
-                    <tr>
-                        <th>
-                            Username
-                        </th>
-                        <th>
-                            Date Sent
-                        </th>
-                        <th>
-                            Time Sent
-                        </th>
-                    </tr>
-                    <tr ng-repeat="userRequest in userRequests" ng-if="userRequest.requestFrom == 'Band' && userRequest.requestType == 4">
-                        <td>
-                            {{userRequest.username}}
-                        </td>
-                        <td>
-                            {{userRequest.requestDate | date}}
-                        </td>
-                        <td>
-                            {{userRequest.requestDate | date:'HH:mm:ss'}}
-                        </td>
-                </table>
-                <h2>Accepted Requests to share contact details</h2>
-                <table>
-                    <tr>
-                        <th>
-                            Username
-                        </th>
-                        <th>
-                            Date Sent
-                        </th>
-                        <th>
-                            Time Sent
-                        </th>
-                    </tr>
-                    <tr ng-repeat="userRequest in userRequests" ng-if="userRequest.requestFrom == 'Band' && userRequest.requestType == 2">
-                        <td>
-                            {{userRequest.username}}
-                        </td>
-                        <td>
-                            {{userRequest.requestDate | date}}
-                        </td>
-                        <td>
-                            {{userRequest.requestDate | date:'HH:mm:ss'}}
-                        </td>
-                        <td><button ng-click="viewUserContactDetails(userRequest.userId)">View Details</button></td>
-                    </tr>
-                </table>
+                </tr>
+            </table>
+            <h2>Unanswered invites to join band</h2>
+            <table>
+                <tr>
+                    <th>
+                        Username
+                    </th>
+                    <th>
+                        Date Sent
+                    </th>
+                    <th>
+                        Time Sent
+                    </th>
+                </tr>
+                <tr ng-repeat="userRequest in userRequests" ng-if="userRequest.requestFrom == 'Band' && userRequest.requestType == 4">
+                    <td>
+                        {{userRequest.username}}
+                    </td>
+                    <td>
+                        {{userRequest.requestDate | date}}
+                    </td>
+                    <td>
+                        {{userRequest.requestDate | date:'HH:mm:ss'}}
+                    </td>
+            </table>
+            <h2>Accepted Requests to share contact details</h2>
+            <table>
+                <tr>
+                    <th>
+                        Username
+                    </th>
+                    <th>
+                        Date Sent
+                    </th>
+                    <th>
+                        Time Sent
+                    </th>
+                </tr>
+                <tr ng-repeat="userRequest in userRequests" ng-if="userRequest.requestFrom == 'Band' && userRequest.requestType == 2">
+                    <td>
+                        {{userRequest.username}}
+                    </td>
+                    <td>
+                        {{userRequest.requestDate | date}}
+                    </td>
+                    <td>
+                        {{userRequest.requestDate | date:'HH:mm:ss'}}
+                    </td>
+                    <td><button ng-click="viewUserContactDetails(userRequest.userId)">View Details</button></td>
+                </tr>
+            </table>
 
-            </div>
         </div>
-        <div ng-show="displayUsersNotifications">
+    </div>
+    
 
-            <div ng-if="getRequestsUsersStatus == 404">You currently have no notifications!</div>
-            <div ng-if="getRequestsUsersStatus == 200">
-                <h1>Requesting contact details </h1><table>
-                    <tr>
-                        <th>
-                            Band Name
-                        </th>
-                        <th>
-                            Date Sent
-                        </th>
-                        <th>
-                            Time Sent
-                        </th>
-                    </tr>
 
-                    <tr ng-repeat="bandRequest in bandRequests" ng-if="bandRequest.requestFrom == 'Band' && bandRequest.requestType == 1">
-                        <td>
-                            {{bandRequest.bandName}}
-                        </td>
-                        <td>
-                            {{bandRequest.requestDate | date}}
-                        </td>
-                        <td>
-                            {{bandRequest.requestDate | date:'HH:mm:ss'}}
-                        </td>
 
-                        <td>
+    <!--NEW USER NOTIFICATIONS PAGE-->
+    <div class="container" ng-show="displayUsersNotifications">
 
-                            <button ng-click="viewThisBandProfile(bandRequest)">View Profile</button>
+        <center><h1 class="paneltitle">Notifications</h1></center>
+        <center><p>Use this page to respond to contact and band invites, and track your own requests.</p></center>
 
-                        </td>
-                        <td><button ng-click="ignoreRequestToContactToUser(bandRequest)">Ignore Request</button></td>
-                        <td><button ng-click="acceptForContactToUser(bandRequest)">Accept</button></td>
-                    </tr>
-                </table>
-                <h1>
-                    Inviting you join the band
-                </h1>
-                <table>
-                    <tr>
-                        <th>
-                            Band Name
-                        </th>
-                        <th>
-                            Request Date
-                        </th>
-                        <th>
-                            Date Sent
-                        </th>
-                        <th>
-                            Time Sent
-                        </th>
-                    </tr>
-                    <tr ng-repeat="bandRequest in bandRequests" ng-if="bandRequest.requestFrom == 'Band' && bandRequest.requestType == 4">
-                        <td>
-                            {{bandRequest.bandName}}
-                        </td>
-                        <td>
-                            {{bandRequest.requestDate | date}}
-                        </td>
-                        <td>
-                            {{bandRequest.requestDate | date:'HH:mm:ss'}}
-                        </td>
-                        <td>
-                            <button ng-click="viewThisUserProfile(userRequest)">View Profile</button>
-                        </td>
-                        <td><button ng-click="declineInviteToUser(bandRequest)">Ignore Request</button></td>
-                        <td><button ng-click="gotToAddMemberFromUser(bandRequest)">Accept</button></td>
-                    </tr>
+        <center>
+            <div class="container" ng-if="getRequestsUsersStatus == 404"><center>You currently have no notifications!</center></div>
+            <div class="container" ng-if="getRequestsUsersStatus == 200"></div>
+        </center>
 
-                </table>
-                <h1>Unanswered Requests sent from you to contact bands</h1><table>
-                    <tr>
-                        <th>
-                            Band Name
-                        </th>
-                        <th>
-                            Date Sent
-                        </th>
-                        <th>
-                            Time Sent
-                        </th>
-                    </tr>
+        <center>
 
-                    <tr ng-repeat="bandRequest in bandRequests" ng-if="bandRequest.requestFrom == 'User' && bandRequest.requestType == 1">
-                        <td>
-                            {{bandRequest.bandName}}
-                        </td>
-                        <td>
-                            {{bandRequest.requestDate | date}}
-                        </td>
-                        <td>
-                            {{bandRequest.requestDate | date:'HH:mm:ss'}}
-                        </td>
-                    </tr>
-                </table>
-                <h1>Unanswered Requests sent from you to join bands </h1>
-                <table>
-                    <tr>
-                        <th>
-                            Band Name
-                        </th>
-                        <th>
-                            Date Sent
-                        </th>
-                        <th>
-                            Time Sent
-                        </th>
-                    </tr>
-                    <tr ng-repeat="bandRequest in bandRequests" ng-if="bandRequest.requestFrom == 'User' && bandRequest.requestType == 4">
-                        <td>
-                            {{bandRequest.bandName}}
-                        </td>
-                        <td>
-                            {{bandRequest.requestDate | date}}
-                        </td>
-                        <td>
-                            {{bandRequest.requestDate | date:'HH:mm:ss'}}
-                        </td>
+            <h2>Bands requesting your contact details </h2>
+            <table width="60%" align="center">
+                <tr>
+                    <th width="50%">
+                        Band Name
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                    <th>
 
-                    </tr>
+                    </th>
+                </tr>
 
-                </table>
-                <h1>Accepted Requests sent from you to contact bands</h1><table>
-                    <tr>
-                        <th>
-                            Band Name
-                        </th>
-                        <th>
-                            Date Sent
-                        </th>
-                        <th>
-                            Time Sent
-                        </th>
-                    </tr>
+                <tr align="center" ng-repeat="bandRequest in bandRequests" ng-if="bandRequest.requestFrom == 'Band' && bandRequest.requestType == 1">
+                    <td>
+                        {{bandRequest.bandName}}
+                    </td>
+                    <td>
+                        {{bandRequest.requestDate | date}}
+                    </td>
 
-                    <tr ng-repeat="bandRequest in bandRequests" ng-if="bandRequest.requestFrom == 'User' && bandRequest.requestType == 2">
-                        <td>
-                            {{bandRequest.bandName}}
-                        </td>
-                        <td>
-                            {{bandRequest.requestDate | date}}
-                        </td>
-                        <td>
-                            {{bandRequest.requestDate | date:'HH:mm:ss'}}
-                        </td>
-                        <td><button ng-click="viewBandContactDetails(bandRequest.bandId)">View Details</button></td>
+                    <td align="center">
+                        <button class="button" ng-click="viewThisBandProfile(bandRequest)">Profile</button>
+                        <button class="button" ng-click="ignoreRequestToContactToUser(bandRequest)">Decline</button>
+                        <button class="button" ng-click="acceptForContactToUser(bandRequest)">Accept</button>
+                    </td>
 
-                    </tr>
-                </table>
-            </div>
-        </div>
+                </tr>
+            </table>
 
-        <div ng-show="addUserToBandFromUser">
-            <form name="addMember1">
-                <label>
-                    Choose Instrument : <select name="chooseInstrument" required ng-model="selectedMemberInstrument" ng-options="allUsersInstrument.instrumentName for allUsersInstrument in allUsersInstruments">
-                        <option value="">
-                            Select Instrument
-                        </option>
-                    </select>
-                </label>
-                <div ng-show="addMember1.chooseInstrument.$touched">
-                    <span ng-show="addMember1.chooseInstrument.$error.required">Instrument is required.</span>
+            <br />
+            <br />
+
+
+            <h2>
+                Invitations to join bands
+            </h2>
+            <table width="60%" align="center">
+                <tr>
+                    <th width="50%">
+                        Band Name
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+
+                <tr align="center" ng-repeat="bandRequest in bandRequests" ng-if="bandRequest.requestFrom == 'Band' && bandRequest.requestType == 4">
+                    <td>
+                        {{bandRequest.bandName}}
+                    </td>
+                    <td>
+                        {{bandRequest.requestDate | date}}
+                    </td>
+
+                    <td align="center">
+                        <button class="button" ng-click="viewThisBandProfile(bandRequest)">Profile</button>
+                        <button class="button" ng-click="declineInviteToUser(bandRequest)">Decline</button>
+                        <button class="button" ng-click="gotToAddMemberFromUser(bandRequest)">Accept</button>
+                    </td>
+
+                </tr>
+            </table>
+
+            <br />
+            <br />
+
+            <h2>
+                Your pending band applications
+            </h2>
+            <table width="60%" align="center">
+                <tr>
+                    <th width="50%">
+                        Band Name
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+
+                <tr align="center" ng-repeat="bandRequest in bandRequests" ng-if="bandRequest.requestFrom == 'User' && bandRequest.requestType == 4">
+                    <td>
+                        {{bandRequest.bandName}}
+                    </td>
+                    <td>
+                        {{bandRequest.requestDate | date}}
+                    </td>
+
+                    <td align="center">
+                        <button class="button" ng-click="viewThisBandProfile(bandRequest)">Profile</button>
+                    </td>
+
+                </tr>
+            </table>
+
+            <br /><br />
+
+            <h2>
+                Your accepted band applications
+            </h2>
+            <table width="60%" align="center">
+                <tr>
+                    <th width="50%">
+                        Band Name
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+
+                <tr align="center" ng-repeat="bandRequest in bandRequests" ng-if="bandRequest.requestFrom == 'User' && bandRequest.requestType == 2">
+                    <td>
+                        {{bandRequest.bandName}}
+                    </td>
+                    <td>
+                        {{bandRequest.requestDate | date}}
+                    </td>
+
+                    <td align="center">
+                        <button class="button" ng-click="viewThisBandProfile(bandRequest)">Profile</button>
+                    </td>
+
+                </tr>
+            </table>
+        </center>
+   </div>
+
+
+
+
+
+
+
+
+                  <div ng-show="addUserToBandFromUser">
+                    <form name="addMember1">
+                        <label>
+                            Choose Instrument : <select name="chooseInstrument" required ng-model="selectedMemberInstrument" ng-options="allUsersInstrument.instrumentName for allUsersInstrument in allUsersInstruments">
+                                <option value="">
+                                    Select Instrument
+                                </option>
+                            </select>
+                        </label>
+                        <div ng-show="addMember1.chooseInstrument.$touched">
+                            <span ng-show="addMember1.chooseInstrument.$error.required">Instrument is required.</span>
+                        </div>
+                    </form>
+                    <button ng-click="acceptInviteToJoinThisBand()" ng-disabled="addMember1.$invalid">Add Member</button>
                 </div>
-            </form>
-            <button ng-click="acceptInviteToJoinThisBand()" ng-disabled="addMember1.$invalid">Add Member</button>
-        </div>
 
-        <div ng-show="addUserToBandFromBand">
-            <form name="addmember2">
-                <label>
-                    Choose Instrument : <select name="chooseInstrument" required ng-model="selectedMemberInstrument" ng-options="allUsersInstrument.instrumentName for allUsersInstrument in allUsersInstruments">
-                        <option value="">
-                            Select Instrument
-                        </option>
-                    </select>
-                </label>
-                <div ng-show="addmember2.chooseInstrument.$touched">
-                    <span ng-show="addmember2.chooseInstrument.$error.required">Instrument is required.</span>
+                <div ng-show="addUserToBandFromBand">
+                    <form name="addmember2">
+                        <label>
+                            Choose Instrument : <select name="chooseInstrument" required ng-model="selectedMemberInstrument" ng-options="allUsersInstrument.instrumentName for allUsersInstrument in allUsersInstruments">
+                                <option value="">
+                                    Select Instrument
+                                </option>
+                            </select>
+                        </label>
+                        <div ng-show="addmember2.chooseInstrument.$touched">
+                            <span ng-show="addmember2.chooseInstrument.$error.required">Instrument is required.</span>
+                        </div>
+                    </form>
+                    <button ng-click="acceptRequestToJoinThisBand()" ng-disabled="addmember2.$invalid">Add Member</button>
                 </div>
-            </form>
-            <button ng-click="acceptRequestToJoinThisBand()" ng-disabled="addmember2.$invalid">Add Member</button>
-        </div>
 
-        <!--View Bands contact details-->
-        <div ng-show="bandContactDetails">
-            <div class="authorisedcontact">
-                {{singleBand.bandName}} has shared their contact details with you.<br /><br />
+                <!--View Bands contact details-->
+                <div ng-show="bandContactDetails">
+                    <div class="authorisedcontact">
+                        {{singleBand.bandName}} has shared their contact details with you.<br /><br />
 
-                <table class="editedbullet" align="center">
-                    <tr>
-                        <td class="material-icons">
-                            phone
-                        </td>
-                        <td class="rightalign">
-                            {{singleBand.phone}}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="material-icons">
-                            email
-                        </td>
-                        <td class="rightalign">
-                            {{singleBand.email}}
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
+                        <table class="editedbullet" align="center">
+                            <tr>
+                                <td class="material-icons">
+                                    phone
+                                </td>
+                                <td class="rightalign">
+                                    {{singleBand.phone}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="material-icons">
+                                    email
+                                </td>
+                                <td class="rightalign">
+                                    {{singleBand.email}}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
 
-        <!--View users contact details-->
-        <div ng-show="userContactDetails">
-            <div class="authorisedcontact">
-                {{singleUser.username}} has shared their contact details with you.<br /><br />
-                <table class="editedbullet" align="center">
-                    <tr>
-                        <td class="material-icons" width="25%" align="right">
-                            person
-                        </td>
-                        <td class="rightalign">
-                            {{singleUser.firstName}} {{singleUser.lastName}}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="material-icons">
-                            phone
-                        </td>
-                        <td class="rightalign">
-                            {{singleUser.contactNo}}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="material-icons">
-                            email
-                        </td>
-                        <td class="rightalign">
-                            {{singleUser.email}}
-                        </td>
-                    </tr>
-                </table>
+                <!--View users contact details-->
+                <div ng-show="userContactDetails">
+                    <div class="authorisedcontact">
+                        {{singleUser.username}} has shared their contact details with you.<br /><br />
+                        <table class="editedbullet" align="center">
+                            <tr>
+                                <td class="material-icons" width="25%" align="right">
+                                    person
+                                </td>
+                                <td class="rightalign">
+                                    {{singleUser.firstName}} {{singleUser.lastName}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="material-icons">
+                                    phone
+                                </td>
+                                <td class="rightalign">
+                                    {{singleUser.contactNo}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="material-icons">
+                                    email
+                                </td>
+                                <td class="rightalign">
+                                    {{singleUser.email}}
+                                </td>
+                            </tr>
+                        </table>
 
-            </div>
-        </div>
+                    </div>
+                </div>
 
 
-        <!--BAND PROFILE VIEW-->
-        <div ng-show="viewBandProfile">
-            <div class="infoboxtop">
-                <div class="proffloatleft">
-                    <div class="proffloatlefttop">
-                        <div class="username">
-                            {{singleBand.bandName}}
+                <!--BAND PROFILE VIEW-->
+                <div ng-show="viewBandProfile">
+                    <div class="infoboxtop">
+                        <div class="proffloatleft">
+                            <div class="proffloatlefttop">
+                                <div class="username">
+                                    {{singleBand.bandName}}
+                                </div>
+                            </div>
+                            <div class="proffloatleftbottom">
+                                <div class="biobox">
+                                    {{singleBand.bioText}}
+                                </div>
+                            </div>
+                            <div ng-if="beingUser == 'true'">
+                                <button ng-click="requestToJoinBand(singleBand)">
+                                    Request To Join
+                                </button>
+                                <div ng-if="requestToJoinStatus == 201">Request Made.</div>
+                                <div ng-if="requestToJoinStatus == 406">Sorry there was an error.</div>
+
+                            </div>
+
+                        </div>
+                        <div class="proffloatright">
+                            <!--PROFILE PHOTO-->
+                            <img class="profpic" src="{{singleBand.profilePhoto}}" alt="Profile Photo" height="200" width="200" align="middle" /><br />
+                            <!--SOCIAL MEDIA ICON BUTTONS-->
+                            <a href="{{singleBand.spotifyURL}}">
+                                <input type="image" id="spotify" src="https://www.freepnglogos.com/uploads/spotify-logo-png/spotify-icon-marilyn-scott-0.png" alt="Spotify" height="66" width="66" align="middle" />
+                            </a>
+                            <a href="{{singleBand.YouTubeURL}}">
+                                <input type="image" id="youtube" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/YouTube_social_white_circle_%282017%29.svg/1024px-YouTube_social_white_circle_%282017%29.svg.png" alt="Youtube" height="66" width="66" align="middle" />
+                            </a>
+                            <a href="{{singleBand.SoundCloudURL}}"><input type="image" id="soundcloud" src="https://cdn3.iconfinder.com/data/icons/ultimate-social/150/32_soundcloud-512.png" alt="Soundcloud" height="66" width="66" align="middle" /></a>
                         </div>
                     </div>
-                    <div class="proffloatleftbottom">
-                        <div class="biobox">
-                            {{singleBand.bioText}}
+
+                    <div class="userdetailsbox">
+                        <div ng-if="memberStatus == 404">This band does not currently have any members.</div>
+                        <div ng-if="memberStatus == 200" class="detailsfloatleft">
+                            <table>
+                                <tr>
+                                    <th>
+                                        Band Member
+                                    </th>
+                                    <th>
+                                        Bio
+                                    </th>
+                                    <th>
+                                        Instrument
+                                    </th>
+                                    <th>
+                                        Date Joined
+                                    </th>
+                                </tr>
+                                <tr ng-repeat="bandMember in bandMembers">
+                                    <td>
+                                        {{bandMember.username}}
+                                    </td>
+                                    <td>
+                                        {{bandMember.bioText}}
+                                    </td>
+                                    <td>
+                                        {{bandMember.instrumentName}}
+                                    </td>
+                                    <td>
+                                        {{bandMember.dateJoinedBand | date}}
+                                    </td>
+
+                                </tr>
+                            </table><br />
+                        </div>
+                        <div ng-if="vacancyStatus == 404">Band currently does not have any vacancies</div>
+                        <div ng-if="vacancyStatus == 200">
+                            <br /><h1>Band Vacancy </h1>
+                            <table>
+                                <tr>
+                                    <th>
+                                        Band Name
+                                    </th>
+                                    <th>
+                                        InstrumentName
+                                    </th>
+                                </tr>
+                                <tr ng-repeat="vacancy in vacancies">
+                                    <td>
+                                        {{vacancy.bandName}}
+                                    </td>
+                                    <td>
+                                        {{vacancy.instrumentName}}
+                                    </td>
+                                </tr>
+                            </table>
+
                         </div>
                     </div>
-                    <div ng-if="beingUser == 'true'">
-                        <button ng-click="requestToJoinBand(singleBand)">
-                            Request To Join
-                        </button>
-                        <div ng-if="requestToJoinStatus == 201">Request Made.</div>
-                        <div ng-if="requestToJoinStatus == 406">Sorry there was an error.</div>
+                    <div class="detailsfloatright">
+                        <div class="detailsfloatrightup">
+                            <div class="region">
 
-                    </div>
+                                <img src="http://www.newdesignfile.com/postpic/2011/10/google-map-location-pin-icons_211210.png" height="15" /> {{singleBand.regionName}}
+                            </div>
+                        </div>
+                        <div class="detailsfloatrightupdown">
+                            <div ng-if="beingUser == 'true'">
+                                To request {{singleBand.bandName}}'s full contact details please click here
 
-                </div>
-                <div class="proffloatright">
-                    <!--PROFILE PHOTO-->
-                    <img class="profpic" src="{{singleBand.profilePhoto}}" alt="Profile Photo" height="200" width="200" align="middle" /><br />
-                    <!--SOCIAL MEDIA ICON BUTTONS-->
-                    <a href="{{singleBand.spotifyURL}}">
-                        <input type="image" id="spotify" src="https://www.freepnglogos.com/uploads/spotify-logo-png/spotify-icon-marilyn-scott-0.png" alt="Spotify" height="66" width="66" align="middle" />
-                    </a>
-                    <a href="{{singleBand.YouTubeURL}}">
-                        <input type="image" id="youtube" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/YouTube_social_white_circle_%282017%29.svg/1024px-YouTube_social_white_circle_%282017%29.svg.png" alt="Youtube" height="66" width="66" align="middle" />
-                    </a>
-                    <a href="{{singleBand.SoundCloudURL}}"><input type="image" id="soundcloud" src="https://cdn3.iconfinder.com/data/icons/ultimate-social/150/32_soundcloud-512.png" alt="Soundcloud" height="66" width="66" align="middle" /></a>
-                </div>
-            </div>
-
-            <div class="userdetailsbox">
-                <div ng-if="memberStatus == 404">This band does not currently have any members.</div>
-                <div ng-if="memberStatus == 200" class="detailsfloatleft">
-                    <table>
-                        <tr>
-                            <th>
-                                Band Member
-                            </th>
-                            <th>
-                                Bio
-                            </th>
-                            <th>
-                                Instrument
-                            </th>
-                            <th>
-                                Date Joined
-                            </th>
-                        </tr>
-                        <tr ng-repeat="bandMember in bandMembers">
-                            <td>
-                                {{bandMember.username}}
-                            </td>
-                            <td>
-                                {{bandMember.bioText}}
-                            </td>
-                            <td>
-                                {{bandMember.instrumentName}}
-                            </td>
-                            <td>
-                                {{bandMember.dateJoinedBand | date}}
-                            </td>
-
-                        </tr>
-                    </table><br />
-                </div>
-                <div ng-if="vacancyStatus == 404">Band currently does not have any vacancies</div>
-                <div ng-if="vacancyStatus == 200">
-                    <br /><h1>Band Vacancy </h1>
-                    <table>
-                        <tr>
-                            <th>
-                                Band Name
-                            </th>
-                            <th>
-                                InstrumentName
-                            </th>
-                        </tr>
-                        <tr ng-repeat="vacancy in vacancies">
-                            <td>
-                                {{vacancy.bandName}}
-                            </td>
-                            <td>
-                                {{vacancy.instrumentName}}
-                            </td>
-                        </tr>
-                    </table>
-
-                </div>
-            </div>
-            <div class="detailsfloatright">
-                <div class="detailsfloatrightup">
-                    <div class="region">
-
-                        <img src="http://www.newdesignfile.com/postpic/2011/10/google-map-location-pin-icons_211210.png" height="15" /> {{singleBand.regionName}}
+                                <button ng-click="requestToContactBand(singleBand)">
+                                    Request To Contact
+                                </button>
+                                <div ng-if="requestToContactStatus == 201">Request Made.</div>
+                                <div ng-if="requestToContactStatus == 406">Sorry there was an error.</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="detailsfloatrightupdown">
-                    <div ng-if="beingUser == 'true'">
-                        To request {{singleBand.bandName}}'s full contact details please click here
 
-                        <button ng-click="requestToContactBand(singleBand)">
-                            Request To Contact
-                        </button>
-                        <div ng-if="requestToContactStatus == 201">Request Made.</div>
-                        <div ng-if="requestToContactStatus == 406">Sorry there was an error.</div>
-                    </div>
+
+                <!--//USER MATCHES PAGE-->
+
+
+                <div class="container" ng-show="displayUsersMatches">
+
+                    <center><h1 class="paneltitle">My Matches</h1></center>
+                    <center><p>Use this page to find and connect with bands in your area</p></center>
+
+                    <center>
+                        <table width="60%" align="center" class="userList">
+
+
+
+                            <tr>
+                                <th>
+                                </th>
+                                <th>
+                                </th>
+                                <th>
+                                </th>
+                                <th>
+                                </th>
+                                <th>
+                                </th>
+                            </tr>
+                            <tr ng-repeat="band in bands" ng-if="band.regionName == thisUserDetails.regionName">
+                                <!--<tr ng-repeat="band in bands" ng-if="band.regionName == thisUserDetails.regionName">-->
+                                <!--ng-if="user.username != thisUserDetails.username &&user.regionName == thisUserDetails.regionName && allUsersInstrument.instrumentName == myInstruments.instrumentName "-->
+                                <td align="center" valign="middle">
+                                    <img class="profpic" src="{{band.profilePhoto}}" height="150" width="150" /><img />
+                                </td>
+                                <td align="center" valign="middle" class="bold">
+                                    {{band.bandName}}
+                                </td>
+                                <td align="center" valign="middle">
+                                    {{band.genreName}}
+                                </td>
+                                <td align="center" valign="middle">
+                                    {{band.regionName}}
+                                </td>
+
+                                <td>
+                                    <button class="button" ng-click="viewThisBandProfile(band)">Profile</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </center>
                 </div>
-            </div>
-        </div>
-
-
-        <!--//USER MATCHES PAGE-->
-
-
-        <div class="container" ng-show="displayUsersMatches">
-
-            <center><h1 class="paneltitle">My Matches</h1></center>
-            <center><p>Use this page to find and connect with bands in your area</p></center>
-
-            <center>
-                <table width="60%" align="center" class="userList">
 
 
 
-                    <tr>
-                        <th>
-                        </th>
-                        <th>
-                        </th>
-                        <th>
-                        </th>
-                        <th>
-                        </th>
-                        <th>
-                        </th>
-                    </tr>
-                    <tr ng-repeat="band in bands" ng-if="band.regionName == thisUserDetails.regionName">
-                        <!--<tr ng-repeat="band in bands" ng-if="band.regionName == thisUserDetails.regionName">-->
-                        <!--ng-if="user.username != thisUserDetails.username &&user.regionName == thisUserDetails.regionName && allUsersInstrument.instrumentName == myInstruments.instrumentName "-->
-                        <td align="center" valign="middle">
-                            <img class="profpic" src="{{band.profilePhoto}}" height="150" width="150" /><img />
-                        </td>
-                        <td align="center" valign="middle" class="bold">
-                            {{band.bandName}}
-                        </td>
-                        <td align="center" valign="middle">
-                            {{band.genreName}}
-                        </td>
-                        <td align="center" valign="middle">
-                            {{band.regionName}}
-                        </td>
+                <!--//BAND MATCHES PAGE-->
+                <div class="container" ng-show="displayBandsMatches">
 
-                        <td>
-                            <button class="button" ng-click="viewThisBandProfile(band)">Profile</button>
-                        </td>
-                    </tr>
-                </table>
-            </center>
-        </div>
+                    <center><h1 class="paneltitle">My Matches</h1></center>
+                    <center><p>Use this page to find and connect with musicians in your area</p></center>
+
+                    <center>
+                        <table width="60%" align="center" class="userList">
 
 
 
-        <!--//BAND MATCHES PAGE-->
-        <div class="container" ng-show="displayBandsMatches">
+                            <tr>
+                                <th>
+                                </th>
+                                <th>
+                                </th>
+                                <th>
+                                </th>
+                                <th>
+                                </th>
+                                <th>
+                                </th>
+                            </tr>
+                            <tr ng-repeat="user in users" ng-if="user.regionName == currentBandInfo.regionName && user.availability == 'Active'">
+                                <!--ng-if="user.username != thisUserDetails.username &&user.regionName == thisUserDetails.regionName && allUsersInstrument.instrumentName == myInstruments.instrumentName "-->
+                                <td align="center" valign="middle">
+                                    <img class="profpic" src="{{user.imageURL}}" height="150" width="150" /><img />
+                                </td>
+                                <td align="center" valign="middle" class="bold">
+                                    {{user.username}}
+                                </td>
+                                <td>
+                                    <ul style="list-style:none;" ng-repeat="allUsersInstrument in allUsersInstruments" ng-if="allUsersInstrument.userId == user.userId">
+                                        <li>
+                                            {{allUsersInstrument.instrumentName}}
+                                        </li>
+                                    </ul>
+                                <td>
+                                <td align="center" valign="middle">
+                                    {{user.regionName}}
+                                </td>
 
-            <center><h1 class="paneltitle">My Matches</h1></center>
-            <center><p>Use this page to find and connect with musicians in your area</p></center>
-
-            <center>
-                <table width="60%" align="center" class="userList">
-
-
-
-                    <tr>
-                        <th>
-                        </th>
-                        <th>
-                        </th>
-                        <th>
-                        </th>
-                        <th>
-                        </th>
-                        <th>
-                        </th>
-                    </tr>
-                    <tr ng-repeat="user in users" ng-if="user.regionName == currentBandInfo.regionName && user.availability == 'Active'">
-                        <!--ng-if="user.username != thisUserDetails.username &&user.regionName == thisUserDetails.regionName && allUsersInstrument.instrumentName == myInstruments.instrumentName "-->
-                        <td align="center" valign="middle">
-                            <img class="profpic" src="{{user.imageURL}}" height="150" width="150" /><img />
-                        </td>
-                        <td align="center" valign="middle" class="bold">
-                            {{user.username}}
-                        </td>
-                        <td>
-                            <ul style="list-style:none;" ng-repeat="allUsersInstrument in allUsersInstruments" ng-if="allUsersInstrument.userId == user.userId">
-                                <li>
-                                    {{allUsersInstrument.instrumentName}}
-                                </li>
-                            </ul>
-                        <td>
-                        <td align="center" valign="middle">
-                            {{user.regionName}}
-                        </td>
-
-                        <td>
-                            <button class="button" ng-click="viewThisUserProfile(user)">Profile</button>
-                        </td>
-                    </tr>
-                </table>
-            </center>
-        </div>
+                                <td>
+                                    <button class="button" ng-click="viewThisUserProfile(user)">Profile</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </center>
+                </div>
 
 
-        <script src="app/myApp.js"></script>
-        <script src="app/main/mainModule.js"></script>
-        <script src="app/main/mainController.js"></script>
-        <script src="app/main/authenticationController.js"></script>
+                <script src="app/myApp.js"></script>
+                <script src="app/main/mainModule.js"></script>
+                <script src="app/main/mainController.js"></script>
+                <script src="app/main/authenticationController.js"></script>
 
 </body>
 </html>
